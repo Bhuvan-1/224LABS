@@ -1,0 +1,112 @@
+/**
+ * Created  on 2018/5/8.
+ */
+
+
+jQuery(function($){
+    $("#privacy").attr("href","javascript:;");
+    var lockButton = false;
+    var isagreeBtn1 = function(){
+        if (lockButton === true) {
+            return false
+        }
+        var checkedStatus = $("input[name='emailradio']:checked").val();
+        var url="privacy.php?mod=viewJdcPrivacy";
+        $.ajax({
+            type:"post",
+            url:url,
+            data:{
+                "isagree":1,
+                "act":"setPrivacy",
+                "signPrivacyType" : 1,
+                "checkedStatus" : checkedStatus
+            },
+            dataType:'json',
+            beforeSend:function (){
+                lockButton = true
+            },
+            success:function(response){
+                if(response.status=='success'){
+                    if ( redirect.indexOf('http') > -1 ) {
+                        var reg = /^http(s)?:\/\/(.*?)\//;
+                        var redirectHost = reg.exec(redirect)[2];
+                        if ( redirectHost.indexOf( response.site_url ) > -1 ) {
+                            location.href=redirect; //跳转到登录前对应的页面;
+                        } else {
+                            location.href = response.site_url + '/index.html';
+                        }
+                    } else {
+                        location.href=redirect; //跳转到登录前对应的页面;
+                    }
+                }
+            },
+            error:function(){
+                lockButton = false
+                alert("亲，请稍后再试~");
+            }
+        })
+    };
+    var isagreeBtn2 = function(){
+        if (lockButton === true) {
+            return false
+        }
+        var url="privacy.php?mod=viewJdcPrivacy";
+        $.ajax({
+            type:"post",
+            url:url,
+            data:{
+                "isagree":1,
+                "act":"setPrivacy",
+                "signPrivacyType" : 2
+            },
+            dataType:'json',
+            beforeSend:function (){
+                lockButton = true
+            },
+            success:function(response){
+                if(response.status=='success'){
+                    if ( redirect.indexOf('http') > -1 ) {
+                        var reg = /^http(s)?:\/\/(.*?)\//;
+                        var redirectHost = reg.exec(redirect)[2];
+                        if ( redirectHost.indexOf( response.site_url ) > -1 ) {
+                            location.href=redirect; //跳转到登录前对应的页面;
+                        } else {
+                            location.href = response.site_url + '/index.html';
+                        }
+                    } else {
+                        location.href=redirect; //跳转到登录前对应的页面;
+                    }
+                }
+            },
+            error:function(){
+                lockButton = false
+                alert("亲，请稍后再试~");
+            }
+        })
+    };
+
+    $("#isagreeFirst").click(function(){
+        if(!$(this).prop("checked")){
+            $("#priv_div1 .priv_btn1").removeClass("statement_submit1_status2");
+            $("#priv_div1 .priv_btn1").addClass("statement_submit1_status1");
+            $("#priv_div1 .priv_btn1").unbind("click",isagreeBtn1);
+        }else{
+            $("#priv_div1 .priv_btn1").removeClass("statement_submit1_status1");
+            $("#priv_div1 .priv_btn1").addClass("statement_submit1_status2");
+            $("#priv_div1 .priv_btn1").bind("click",isagreeBtn1);
+        }
+    });
+    $("#isagreeSecond").click(function(){
+        if(!$(this).prop("checked")){
+            $("#priv_div2 .priv_next").removeClass("statement_submit1_status2");
+            $("#priv_div2 .priv_next").addClass("statement_submit1_status1");
+            $("#priv_div2 .priv_next").unbind("click",isagreeBtn2);
+        }else{
+            $("#priv_div2 .priv_next").removeClass("statement_submit1_status1");
+            $("#priv_div2 .priv_next").addClass("statement_submit1_status2");
+            $("#priv_div2 .priv_next").bind("click",isagreeBtn2);
+        }
+    });
+    $("#priv_div2 .priv_btn1").unbind("click");
+    $("#priv_div2 .priv_next").unbind("click");
+})

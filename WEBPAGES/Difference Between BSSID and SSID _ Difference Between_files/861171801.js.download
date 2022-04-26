@@ -1,0 +1,52 @@
+(function() {
+    var r,
+        formString = "<style type=\"text/css\">#af-form-861171801 .af-body .af-textWrap{width:98%;display:block;float:none;}#af-form-861171801 .af-body input.text, #af-form-861171801 .af-body textarea{background-color:#FFFFFF;border-color:#CCCCCC;border-width:2px;border-style:inset;color:#000000;text-decoration:none;font-style:normal;font-weight:normal;font-size:18px;font-family:inherit;}#af-form-861171801 .af-body input.text:focus, #af-form-861171801 .af-body textarea:focus{background-color:#DCEBF7;border-color:#CCCCCC;border-width:2px;border-style:inset;}#af-form-861171801 .af-body label.previewLabel{display:block;float:none;text-align:left;width:auto;color:#000000;text-decoration:none;font-style:normal;font-weight:normal;font-size:inherit;font-family:inherit;}#af-form-861171801 .af-body{padding-bottom:11px;padding-top:11px;background-repeat:no-repeat;background-position:inherit;background-image:none;color:#000000;font-size:12px;font-family:, serif;}#af-form-861171801 .af-quirksMode{padding-right:8px;padding-left:8px;}#af-form-861171801 .af-standards .af-element{padding-right:8px;padding-left:8px;}#af-form-861171801 .buttonContainer input.submit{background-image:url(\"https://forms.aweber.com/images/auto/gradient/button/8be.png\");background-position:top left;background-repeat:repeat-x;background-color:#689bbf;border:1px solid #689bbf;color:#000000;text-decoration:none;font-style:normal;font-weight:normal;font-size:16px;font-family:inherit;}#af-form-861171801 .buttonContainer input.submit{width:auto;}#af-form-861171801 .buttonContainer{text-align:center;}#af-form-861171801 button,#af-form-861171801 input,#af-form-861171801 submit,#af-form-861171801 textarea,#af-form-861171801 select,#af-form-861171801 label,#af-form-861171801 optgroup,#af-form-861171801 option{float:none;position:static;margin:0;}#af-form-861171801 div{margin:0;}#af-form-861171801 form,#af-form-861171801 textarea,.af-form-wrapper,.af-form-close-button,#af-form-861171801 img{float:none;color:inherit;position:static;background-color:none;border:none;margin:0;padding:0;}#af-form-861171801 input,#af-form-861171801 button,#af-form-861171801 textarea,#af-form-861171801 select{font-size:100%;}#af-form-861171801 select,#af-form-861171801 label,#af-form-861171801 optgroup,#af-form-861171801 option{padding:0;}#af-form-861171801,#af-form-861171801 .quirksMode{width:100%;max-width:300px;}#af-form-861171801.af-quirksMode{overflow-x:hidden;}#af-form-861171801{background-color:transparent;border-color:#D6ECFC;border-width:1px;border-style:solid;}#af-form-861171801{display:block;}#af-form-861171801{overflow:hidden;}.af-body .af-textWrap{text-align:left;}.af-body input.image{border:none!important;}.af-body input.submit,.af-body input.image,.af-form .af-element input.button{float:none!important;}.af-body input.submit{white-space:inherit;}.af-body input.text{width:100%;float:none;padding:2px!important;}.af-body.af-standards input.submit{padding:4px 12px;}.af-clear{clear:both;}.af-element label{text-align:left;display:block;float:left;}.af-element{padding-bottom:5px;padding-top:5px;}.af-form-wrapper{text-indent:0;}.af-form{box-sizing:border-box;text-align:left;margin:auto;}.af-quirksMode .af-element{padding-left:0!important;padding-right:0!important;}.lbl-right .af-element label{text-align:right;}body {}</style><form method=\"post\" class=\"af-form-wrapper\" accept-charset=\"UTF-8\" action=\"https://www.aweber.com/scripts/addlead.pl\"  ><div style=\"display: none;\"><input type=\"hidden\" name=\"meta_web_form_id\" value=\"861171801\" /><input type=\"hidden\" name=\"meta_split_id\" value=\"\" /><input type=\"hidden\" name=\"listname\" value=\"differencebetwe\" /><input type=\"hidden\" name=\"redirect\" value=\"http://www.differencebetween.net/email-subscription/\" id=\"redirect_97b001cacb214d53ae9ffaf06a11335e\" /><input type=\"hidden\" name=\"meta_adtracking\" value=\"DifferenceBetween_\" /><input type=\"hidden\" name=\"meta_message\" value=\"1\" /><input type=\"hidden\" name=\"meta_required\" value=\"email\" /><input type=\"hidden\" name=\"meta_tooltip\" value=\"email||Email\" /></div><div id=\"af-form-861171801\" class=\"af-form\"><div id=\"af-body-861171801\" class=\"af-body af-standards\"><div class=\"af-element\"><label class=\"previewLabel\" for=\"awf_field-110308005\"></label><div class=\"af-textWrap\"><input class=\"text\" id=\"awf_field-110308005\" type=\"text\" name=\"email\" value=\"Email\" tabindex=\"500\" onfocus=\" if (this.value == \'Email\') { this.value = \'\'; }\" onblur=\"if (this.value == \'\') { this.value=\'Email\';} \" /></div><div class=\"af-clear\"></div></div><div class=\"af-element buttonContainer\"><input name=\"submit\" class=\"submit\" type=\"submit\" value=\"Subscribe\" tabindex=\"501\" /><div class=\"af-clear\"></div></div></div></div></form><script type=\"text/javascript\">// Special handling for in-app browsers that don\'t always support new windows(function() {    function browserSupportsNewWindows(userAgent) {        var rules = [            \'FBIOS\',            \'Twitter for iPhone\',            \'WebView\',            \'(iPhone|iPod|iPad)(?!.*Safari\\/)\',            \'Android.*(wv|\\.0\\.0\\.0)\'        ];        var pattern = new RegExp(\'(\' + rules.join(\'|\') + \')\', \'ig\');        return !pattern.test(userAgent);    }    if (!browserSupportsNewWindows(navigator.userAgent || navigator.vendor || window.opera)) {        document.getElementById(\'af-form-861171801\').parentElement.removeAttribute(\'target\');    }})();</script><script type=\"text/javascript\">    <!--    (function() {        var IE = /*@cc_on!@*/false;        if (!IE) { return; }        if (document.compatMode && document.compatMode == \'BackCompat\') {            if (document.getElementById(\"af-form-861171801\")) {                document.getElementById(\"af-form-861171801\").className = \'af-form af-quirksMode\';            }            if (document.getElementById(\"af-body-861171801\")) {                document.getElementById(\"af-body-861171801\").className = \"af-body inline af-quirksMode\";            }            if (document.getElementById(\"af-header-861171801\")) {                document.getElementById(\"af-header-861171801\").className = \"af-header af-quirksMode\";            }            if (document.getElementById(\"af-footer-861171801\")) {                document.getElementById(\"af-footer-861171801\").className = \"af-footer af-quirksMode\";            }        }    })();    --></script>";
+    // Special handling for facebook iOS since it cannot open new windows
+    if (navigator.userAgent.indexOf('FBIOS') !== -1 || navigator.userAgent.indexOf('Twitter for iPhone') !== -1) {
+        formString = formString.replace(/ target=\"_blank\"/g, '');
+    }
+    try {
+        r = document.querySelectorAll('.AW-Form-861171801');
+    }
+    catch (exception) {
+        // do nothing, the try catch is if the doctype is left as just HTML
+    }
+    if (r.length > 0) {
+        for(var i=0; i < r.length; i++){
+           var s = document.createElement('div');
+           s.innerHTML = formString;
+           r[i].insertBefore(s, r[i].firstChild);
+        }
+    } else {
+        document.write(formString);
+    }
+})();
+
+if (typeof window.awf_Form_=='undefined') window.awf_Form_ = new Object();
+awf_Form_.isPreview = false;
+awf_Form_.setCookie = function(name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) +
+        ((expires) ? "; expires=" + expires.toGMTString() : "") +
+        ((path) ? "; path=" + path : "") +
+        ((domain) ? "; domain=" + domain : "") +
+        ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+awf_Form_.getCookie = function(name) {
+    var dc = document.cookie;
+    var prefix = name + "=";
+    var begin = dc.indexOf("; " + prefix);
+    if (begin == -1) {
+        begin = dc.indexOf(prefix);
+        if (begin != 0) return null;
+    } else
+        begin += 2;
+    var end = document.cookie.indexOf(";", begin);
+    if (end == -1)
+        end = dc.length;
+    return unescape(dc.substring(begin + prefix.length, end));
+}
+
+var unique_track = new Image();
+        unique_track.src = "https://forms.aweber.com/form/displays.htm?id=HGyMjOyMHAyM";

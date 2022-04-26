@@ -1,0 +1,262 @@
+@charset "utf-8";
+/* CSS Document */
+body { margin: 0; background:#F1F4F6; font-size: 12px; line-height:22px; font-family:"Microsoft YaHei","Arial","宋体","Tahoma","Verdana","SimSun"; color: #333;  height:100%; }
+td, p, div, a, form { margin: 0; padding: 0; }
+ul, ol , dl , dt, dd { margin: 0; padding: 0; list-style: none;  color: #333; }
+input,select,textarea,button { margin: 0; padding: 0; font-size: 12px; font-family:"Microsoft YaHei","Arial","宋体","Tahoma","Verdana","SimSun";  color: #333; outline:none; }
+select, textarea{background-color: #fff; }
+h1,h2,h3,h4,h5,h6 { margin: 0; padding: 0; font-family:"Microsoft YaHei","Arial","宋体","Tahoma","Verdana","SimSun";  color: #333; }
+a img { border: none; }
+img{vertical-align:top;}
+a {color: #333; text-decoration:none;}
+a:hover {color: #2473b7; text-decoration:none; }
+table {border-collapse: collapse;border-spacing: 0;}
+@font-face {
+    font-family: "HuaweiSans";
+    src: url("huawesans/HuaweiSans-Regular.woff2") format("woff2"),
+    url("huawesans/HuaweiSans-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "HuaweiSans";
+    src: url("huawesans/HuaweiSans-Bold.woff2") format("woff2"),
+    url("huawesans/HuaweiSans-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+.small_medal {width: 30px;}
+.cboth{clear:both; font-size:1px; height:0px; line-height:0;}
+.clearfix:after {visibility:hidden; display:block; font-size:1px; content:""; line-height:0; clear:both; height:0;overflow:hidden;}
+.clearfix { zoom:1;}
+
+pre{
+    white-space:pre-wrap;
+    white-space:-moz-pre-wrap;
+    white-space:-pre-wrap;
+    white-space:-o-pre-wrap;
+    word-wrap:break-word;
+}
+
+.fl{float:left;}
+.fr{float:right;}
+
+.tc{text-align:center;}
+
+.pr{position:relative;}
+
+.pt2{padding-top:2px;}
+.pt5{padding-top:5px;}
+.pt7{padding-top:7px;}
+.pt10{padding-top:10px;}
+.pt15{padding-top:15px;}
+.pt20{padding-top:20px;}
+.pb10{padding-bottom:10px;}
+.pb20{padding-bottom:20px;}
+
+.pl5{padding-left:5px;}
+.pl6{padding-left:6px;}
+.pl10{padding-left:10px;}
+.pl15{padding-left:15px;}
+.pl25{padding-left:25px;}
+.pl30{padding-left:30px;}
+.pl40{padding-left:40px;}
+.pl120{padding-left:120px;}
+
+.pr10{padding-right:10px;}
+
+.mt5{margin-top:5px;}
+.mt10{margin-top:10px;}
+.mt20{margin-top:20px;}
+.mt30{margin-top:30px;}
+.mt50{margin-top:50px;}
+.ml5{margin-left:5px;}
+.ml6{margin-left:6px;}
+.ml10{margin-left:10px;}
+.ml24{margin-left:24px;}
+.ml60{margin-left:60px;}
+.mb10{margin-bottom:10px;}
+.mb20{margin-bottom:20px;}
+
+.mr5{margin-right:5px;}
+
+.cfff{color:#fff;}
+.cred{color:#f5040a;}
+.cblue{color:#1aa6ff;}
+.corange{color:#e06412;}
+.cgreen{color:#71b04d;}
+.cgray{color:#999;}
+
+
+.fwb{font-weight:bold;}
+.f14{font-size:14px;}
+.font_arial{font-family:"Arial";}
+.dis_none{display:none;}
+.dib{ display:inline-block}
+
+.visiableforhw{margin-left:15px;}/*MODIFY-WZM*/
+.slide{height:0px;}/*modify-wzm 解决轮播切换不流畅*/
+
+.h25{height:25px;}
+.hidden{overflow: hidden;}
+
+.pbg .xs0{
+    top: -3px;
+}
+.friend_overflow{width: 110px;display: block;overflow: hidden;text-overflow: ellipsis;}
+#auc_lang_t, #auc_lang_c{display: none;}
+.xiangxi_field {
+    text-align: center;
+    padding-top: 26px;
+    padding-bottom: 10px;
+    margin-top:-10px;
+    background: url(../../../static/image/common/field.gif) no-repeat center 10px;
+    overflow: hidden;
+}
+
+.field-box {
+    overflow:auto;
+}
+.field-left {
+    float:left;
+    margin-right:35px;
+}
+.field-tag {
+    display: inline-block;
+    padding: 0px 15px 0px 8px;
+    height: 20px;
+    line-height: 20px;
+    color: #fff;
+    font-size: 12px;
+    position: relative;
+    background: #00c0c4;
+    color: white;
+    border-bottom-left-radius:4px;
+    border-top-left-radius:4px;
+    margin-right: 15px;
+}
+.right-arrow {
+    width: 30px;
+    height: 0px;
+    position: absolute;
+    top: 0px;
+    box-sizing: border-box;
+    border-width: 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #00c0c4;
+    right: -30px;
+}
+.right-circle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    right: -2px;
+    top: 6px;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+.field-rec {
+    margin-bottom:10px;
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 14px;
+    padding: 0px 5px;;
+    height: 20px;
+    line-height: 20px;
+    background: #ecfbfb;
+    color: #00c0c4;
+    border: 1px solid #bceaeb;
+    border-radius:4px;
+}
+.invitedUser{ color:#606972; }
+.invitedUser:hover{ color:#1890ff; cursor: pointer; }
+.wechat_invite_user{ color:#606972; min-height:24px;margin-top:3px; }
+.wechat_unbind_user{ color:#606972; min-height:24px;}
+.export_whechat_invite_user{ width:16px; height:16px; padding:3px; float: right; display:inline-block; background: url(../../../static/image/common/export1.png) no-repeat center;}
+.export_whechat_invite_user:hover{cursor: pointer; background: url(../../../static/image/common/export2.png) no-repeat center; }
+.sadd .survey_tip{ width: 100%; font-family:"Microsoft YaHei","Arial","宋体","Tahoma","Verdana","SimSun"; font-weight: bold; color: #333333; text-align: left;}
+.addQuestion{ text-decoration: underline; color: #09C; padding: 0 3px; cursor: pointer;}
+.ct2_a  .sadd .survey_expiration{ width: 100%; position: relative; }
+.sadd .survey_expiration .dpbtn{ float: none; position: absolute; left:217px;}
+.sadd .survey_expiration_tip{ width: 100%; font-family:"Microsoft YaHei","Arial","宋体","Tahoma","Verdana","SimSun"; font-weight: bold; color: #fd2424; text-align: left; margin-left: 22px;}
+.backgroundLabel{ width: 100%; font-family:"Microsoft YaHei","Arial","宋体","Tahoma","Verdana","SimSun"; font-weight: bold; color: #333333; text-align: left; margin-top: 20px; margin-bottom: 10px;}
+#surveyContent .question {margin-bottom:20px;border:1px solid #dde8ef;box-shadow: 0 2px 6px #dde8ef; }
+#surveyContent .top{font-size:14px;color:#333;border-bottom:1px solid #dde8ef;padding: 0 20px;height:30px;line-height:30px;}
+#surveyContent .conntent{padding: 8px 20px 10px;font-size:14px;color:#333;}
+#surveyContent .qOrder {width:40px;text-align:center;}
+#surveyContent .operation-btn {float:right;font-size:12px;}
+#surveyContent .operation-btn span {cursor: pointer;}
+#surveyContent .operation-btn span:hover {color:#00c0c4;}
+#surveyContent .operation-edit {margin-right:10px;}
+#surveyContent .operation-icon {margin-right:5px;font-size:16px;}
+#surveyContent .title { padding: 0; font-size:16px; word-break: break-all; font-weight: 700; line-height: 25px; overflow: visible; min-height: 32px; height: auto;}
+#surveyContent .conntent ul li {margin-bottom:10px; word-break: break-all;}
+#surveyContent .conntent input[type='text'],#surveyContent .conntent textarea {width:100%;}
+#surveyContent .conntent textarea {height:55px;}
+#surveyContent .survey-required{ color: #f5222d; margin-top: 2px; margin-right: 5px; vertical-align: -2px;}
+#surveyContent input[name='option'] { vertical-align: -2px; }
+.survey_tip .survey-button {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #00C0C4;
+    border-color: #00C0C4;
+    border: 1px solid #00C0C4;
+    -webkit-appearance: none;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    -webkit-transition: .1s;
+    transition: .1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    width:76px;
+    padding: 6px 0;
+    font-size: 12px;
+}
+.survey_tip .add-optionicon {
+    font-size:12px;
+    margin-right:5px;
+}
+.survey_tip .survey-button:hover,.survey_tip .survey-button:active{
+    background: #33cdd0;
+    border-color: #33cdd0;
+    color: #FFFFFF;
+}
+.survey_tip .add-option i{vertical-align: -2px; margin-right: 2px; }
+#return_showMsgBox {word-break: break-word;}
+
+/*头像选择框begin*/
+.upload_img{
+    display: none;
+}
+.cropper-modal{
+    background: none!important;
+}
+.avatar_input{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    opacity: 0;
+    display: none;
+}
+.img-container{
+    width: 400px;
+    height: 250px;
+    position: relative;
+}
+#show-img{
+    max-width: 400px;
+    max-height: 250px;
+}
+.avatar_default{
+    cursor:pointer;
+}
+/*头像选择框end*/

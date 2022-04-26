@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://www.linuxjournal.com/content/fun-ethtool -->
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# " class="wf-lateef wf-opensans js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" defer="" src="./Fun with ethtool _ Linux Journal_files/piwik.js.download"></script><script type="text/javascript" async="" src="./Fun with ethtool _ Linux Journal_files/recaptcha__en.js.download" crossorigin="anonymous" integrity="sha384-GLJMwNj3546zgUVjrd41QmXS0fdK5/SrrvaM33bRtDDYeW5KygkcPN+lQPjFA6D+"></script>
+    
+<meta name="Generator" content="Drupal 8 (https://www.drupal.org)">
+<meta name="MobileOptimized" content="width">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="https://www.linuxjournal.com/themes/linuxjournal/favicon.ico" type="image/vnd.microsoft.icon">
+<link rel="canonical" href="https://www.linuxjournal.com/content/fun-ethtool">
+<link rel="shortlink" href="https://www.linuxjournal.com/node/1021055">
+<link rel="revision" href="https://www.linuxjournal.com/content/fun-ethtool">
+
+    <title>Fun with ethtool | Linux Journal</title>
+    <link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/align.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/fieldgroup.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/container-inline.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/clearfix.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/details.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/hidden.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/item-list.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/js.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/nowrap.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/position-container.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/progress.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/reset-appearance.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/resize.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/sticky-header.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/system-status-counter.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/system-status-report-counters.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/system-status-report-general-info.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/tablesort.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/tree-child.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/poll.base.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/poll.theme.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/views.module.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/shariff.complete.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/webform_bootstrap.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/style.css">
+<link rel="stylesheet" media="all" href="./Fun with ethtool _ Linux Journal_files/fonts.css">
+
+      <!--   <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>-->
+
+    <script async="" src="./Fun with ethtool _ Linux Journal_files/tag.aspx"></script><script>
+      // Non-blocking webfonts.
+      (function iife() {
+        'use strict';
+
+        // JS is able to start executing.
+        document.documentElement.classList.remove('no-js');
+
+        // Optimization for Repeat Views
+        // Stop early for repeat views that have already cached fonts.
+        if (sessionStorage.fontsLoadedLateef && sessionStorage.fontsLoadedOpensans /* && sessionStorage.fontsLoadedNEWFONT */) {
+          document.documentElement.classList.remove('wf-loading');
+          document.documentElement.classList.add('wf-opensans');
+          document.documentElement.classList.add('wf-lateef');
+          // document.documentElement.classList.add('wf-NEWFONT');
+          return;
+        }
+
+        // Inlined Font Face Observer script + Promise polyfill.
+        /*! Font Face Observer v2.0.13 - © Bram Stein. License: BSD-3-Clause */
+        (function(){'use strict';var f,g=[];function l(a){g.push(a);1==g.length&&f()}function m(){for(;g.length;)g[0](),g.shift()}f=function(){setTimeout(m)};function n(a){this.a=p;this.b=void 0;this.f=[];var b=this;try{a(function(a){q(b,a)},function(a){r(b,a)})}catch(c){r(b,c)}}var p=2;function t(a){return new n(function(b,c){c(a)})}function u(a){return new n(function(b){b(a)})}function q(a,b){if(a.a==p){if(b==a)throw new TypeError;var c=!1;try{var d=b&&b.then;if(null!=b&&"object"==typeof b&&"function"==typeof d){d.call(b,function(b){c||q(a,b);c=!0},function(b){c||r(a,b);c=!0});return}}catch(e){c||r(a,e);return}a.a=0;a.b=b;v(a)}}
+        function r(a,b){if(a.a==p){if(b==a)throw new TypeError;a.a=1;a.b=b;v(a)}}function v(a){l(function(){if(a.a!=p)for(;a.f.length;){var b=a.f.shift(),c=b[0],d=b[1],e=b[2],b=b[3];try{0==a.a?"function"==typeof c?e(c.call(void 0,a.b)):e(a.b):1==a.a&&("function"==typeof d?e(d.call(void 0,a.b)):b(a.b))}catch(h){b(h)}}})}n.prototype.g=function(a){return this.c(void 0,a)};n.prototype.c=function(a,b){var c=this;return new n(function(d,e){c.f.push([a,b,d,e]);v(c)})};
+        function w(a){return new n(function(b,c){function d(c){return function(d){h[c]=d;e+=1;e==a.length&&b(h)}}var e=0,h=[];0==a.length&&b(h);for(var k=0;k<a.length;k+=1)u(a[k]).c(d(k),c)})}function x(a){return new n(function(b,c){for(var d=0;d<a.length;d+=1)u(a[d]).c(b,c)})};window.Promise||(window.Promise=n,window.Promise.resolve=u,window.Promise.reject=t,window.Promise.race=x,window.Promise.all=w,window.Promise.prototype.then=n.prototype.c,window.Promise.prototype["catch"]=n.prototype.g);}());
+
+        (function(){function l(a,b){document.addEventListener?a.addEventListener("scroll",b,!1):a.attachEvent("scroll",b)}function m(a){document.body?a():document.addEventListener?document.addEventListener("DOMContentLoaded",function c(){document.removeEventListener("DOMContentLoaded",c);a()}):document.attachEvent("onreadystatechange",function k(){if("interactive"==document.readyState||"complete"==document.readyState)document.detachEvent("onreadystatechange",k),a()})};function r(a){this.a=document.createElement("div");this.a.setAttribute("aria-hidden","true");this.a.appendChild(document.createTextNode(a));this.b=document.createElement("span");this.c=document.createElement("span");this.h=document.createElement("span");this.f=document.createElement("span");this.g=-1;this.b.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";this.c.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";
+        this.f.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";this.h.style.cssText="display:inline-block;width:200%;height:200%;font-size:16px;max-width:none;";this.b.appendChild(this.h);this.c.appendChild(this.f);this.a.appendChild(this.b);this.a.appendChild(this.c)}
+        function t(a,b){a.a.style.cssText="max-width:none;min-width:20px;min-height:20px;display:inline-block;overflow:hidden;position:absolute;width:auto;margin:0;padding:0;top:-999px;white-space:nowrap;font-synthesis:none;font:"+b+";"}function y(a){var b=a.a.offsetWidth,c=b+100;a.f.style.width=c+"px";a.c.scrollLeft=c;a.b.scrollLeft=a.b.scrollWidth+100;return a.g!==b?(a.g=b,!0):!1}function z(a,b){function c(){var a=k;y(a)&&a.a.parentNode&&b(a.g)}var k=a;l(a.b,c);l(a.c,c);y(a)};function A(a,b){var c=b||{};this.family=a;this.style=c.style||"normal";this.weight=c.weight||"normal";this.stretch=c.stretch||"normal"}var B=null,C=null,E=null,F=null;function G(){if(null===C)if(J()&&/Apple/.test(window.navigator.vendor)){var a=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))(?:\.([0-9]+))/.exec(window.navigator.userAgent);C=!!a&&603>parseInt(a[1],10)}else C=!1;return C}function J(){null===F&&(F=!!document.fonts);return F}
+        function K(){if(null===E){var a=document.createElement("div");try{a.style.font="condensed 100px sans-serif"}catch(b){}E=""!==a.style.font}return E}function L(a,b){return[a.style,a.weight,K()?a.stretch:"","100px",b].join(" ")}
+        A.prototype.load=function(a,b){var c=this,k=a||"BESbswy",q=0,D=b||3E3,H=(new Date).getTime();return new Promise(function(a,b){if(J()&&!G()){var M=new Promise(function(a,b){function e(){(new Date).getTime()-H>=D?b():document.fonts.load(L(c,'"'+c.family+'"'),k).then(function(c){1<=c.length?a():setTimeout(e,25)},function(){b()})}e()}),N=new Promise(function(a,c){q=setTimeout(c,D)});Promise.race([N,M]).then(function(){clearTimeout(q);a(c)},function(){b(c)})}else m(function(){function u(){var b;if(b=-1!=
+        f&&-1!=g||-1!=f&&-1!=h||-1!=g&&-1!=h)(b=f!=g&&f!=h&&g!=h)||(null===B&&(b=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent),B=!!b&&(536>parseInt(b[1],10)||536===parseInt(b[1],10)&&11>=parseInt(b[2],10))),b=B&&(f==v&&g==v&&h==v||f==w&&g==w&&h==w||f==x&&g==x&&h==x)),b=!b;b&&(d.parentNode&&d.parentNode.removeChild(d),clearTimeout(q),a(c))}function I(){if((new Date).getTime()-H>=D)d.parentNode&&d.parentNode.removeChild(d),b(c);else{var a=document.hidden;if(!0===a||void 0===a)f=e.a.offsetWidth,
+        g=n.a.offsetWidth,h=p.a.offsetWidth,u();q=setTimeout(I,50)}}var e=new r(k),n=new r(k),p=new r(k),f=-1,g=-1,h=-1,v=-1,w=-1,x=-1,d=document.createElement("div");d.dir="ltr";t(e,L(c,"sans-serif"));t(n,L(c,"serif"));t(p,L(c,"monospace"));d.appendChild(e.a);d.appendChild(n.a);d.appendChild(p.a);document.body.appendChild(d);v=e.a.offsetWidth;w=n.a.offsetWidth;x=p.a.offsetWidth;I();z(e,function(a){f=a;u()});t(e,L(c,'"'+c.family+'",sans-serif'));z(n,function(a){g=a;u()});t(n,L(c,'"'+c.family+'",serif'));
+        z(p,function(a){h=a;u()});t(p,L(c,'"'+c.family+'",monospace'))})})};"object"===typeof module?module.exports=A:(window.FontFaceObserver=A,window.FontFaceObserver.prototype.load=A.prototype.load);}());
+
+        // Load and observe Lateef
+        var Lateef = new FontFaceObserver('Lateef', {weight: 400});
+        Promise.all([Lateef.load()]).then(function() {
+          document.documentElement.classList.remove('wf-loading');
+          document.documentElement.classList.add('wf-lateef');
+
+          // Optimization for Repeat Views
+          // Set a flag in localstorage so repeat views can skip processing FFO.
+          sessionStorage.fontsLoadedLateef = true;
+        });
+
+        // Load and observe Open Sans
+        var os300 = new FontFaceObserver('Open Sans', {weight: 300});
+        var os400 = new FontFaceObserver('Open Sans', {weight: 400});
+        Promise.all([os300.load(), os400.load()]).then(function() {
+          document.documentElement.classList.remove('wf-loading');
+          document.documentElement.classList.add('wf-opensans');
+
+          // Optimization for Repeat Views
+          // Set a flag in localstorage so repeat views can skip processing FFO.
+          sessionStorage.fontsLoadedOpensans = true;
+        });
+
+        // Load and observe NEWFONT
+        /*
+        var NEWFONT = new FontFaceObserver('NEWFONT', {weight: 400});
+        Promise.all([NEWFONT.load()]).then(function() {
+          document.documentElement.classList.remove('wf-loading');
+          document.documentElement.classList.add('wf-NEWFONT');
+
+          // Optimization for Repeat Views
+          // Set a flag in localstorage so repeat views can skip processing FFO.
+          sessionStorage.fontsLoadedNEWFONT = true;
+        });
+        */
+      })();
+    </script>
+    
+<!--[if lte IE 8]>
+<script src="/core/assets/vendor/html5shiv/html5shiv.min.js?v=3.7.3"></script>
+<![endif]-->
+
+    <script src="./Fun with ethtool _ Linux Journal_files/api.js.download" async="" defer=""></script>
+    <script src="./Fun with ethtool _ Linux Journal_files/country.js.download"></script>
+    <script src="./Fun with ethtool _ Linux Journal_files/cmp2.js.download"></script>
+    <link rel="stylesheet" href="./Fun with ethtool _ Linux Journal_files/cmp.css" type="text/css">
+    <link rel="stylesheet" href="./Fun with ethtool _ Linux Journal_files/ccpa.css" type="text/css">
+    <script>
+    if (window.is_euro_union == 1 || (window.country_code2 == 'US' && window.region == 'CA')) {
+     window.bizx.cmp.init({}, 'consentmanager.net');
+    }
+    </script>
+    <script>
+    function bm_trace() {
+        (function (w,d,t) {
+          _ml = w._ml || {};
+          _ml.eid = '771';
+          var s, cd, tag; s = d.getElementsByTagName(t)[0]; cd = new Date();
+          tag = d.createElement(t); tag.async = 1;
+          tag.src = 'https://ml314.com/tag.aspx?' + cd.getDate() + cd.getMonth();
+          s.parentNode.insertBefore(tag, s);
+        })(window,document,'script');
+    }
+    bizx.cmp.ifConsent('', ['all', 'bombora'],bm_trace);
+    </script>
+
+  <script src="./Fun with ethtool _ Linux Journal_files/count-data.js.download"></script><script src="./Fun with ethtool _ Linux Journal_files/init-448i7exgpyqpr9c144q.js.download"></script><script async="" src="./Fun with ethtool _ Linux Journal_files/pp.js.download"></script></head>
+  <body class="path-node page-node-type-story has-glyphicons no-cmp">
+    <a href="https://www.linuxjournal.com/content/fun-ethtool#main-content" class="visually-hidden focusable skip-link">
+      Skip to main content
+    </a>
+    
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas="">
+    <div id="wrap">
+<div class="leader-wrapper" id="leader-wrapper">
+</div>
+
+<div class="brand-wrapper" id="brand-wrapper">
+  <div class="brand container">
+    <div class="region region-brand">
+          <a class="logo navbar-btn" href="https://www.linuxjournal.com/" title="Home" rel="home">
+      <h1><img src="./Fun with ethtool _ Linux Journal_files/ljlogo.png" alt="Linux Journal"></h1>
+    </a>
+      <section id="block-topbannernearlogo" class="block block-block-content block-block-contenta8e75a3d-967c-416d-8944-4015d1f90a84 clearfix">
+  
+    
+
+      
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><p></p>
+</div>
+      
+  </section>
+
+
+  </div>
+
+  </div>
+
+          <div class="header-wrapper">
+    <header class="navbar navbar-default container" id="navbar" role="banner">
+                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+            <div class="region region-navigation-collapsible">
+    <section id="block-linuxjournal-main-menu" class="block block-system block-system-menu-blockmain clearfix navbar__menu col-xs-12 col-sm-8">
+  
+    
+
+      
+      <ul class="menu menu--main nav navbar-nav">
+                        <li class="expanded dropdown">
+        <a href="https://www.linuxjournal.com/" class="dropdown-toggle" data-toggle="dropdown">Topics+ <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                        <li>
+        <a href="https://www.linuxjournal.com/tag/cloud">Cloud</a>
+                  </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/tag/containers" data-drupal-link-system-path="taxonomy/term/978">Containers</a>
+                  </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/tag/desktop">Desktop</a>
+                  </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/tag/kernel" data-drupal-link-system-path="taxonomy/term/662">Kernel</a>
+                  </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/tag/mobile">Mobile</a>
+                  </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/tag/networking">Networking</a>
+                  </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/tag/privacy">Privacy</a>
+                  </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/tag/programming">Programming</a>
+                  </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/tag/security" data-drupal-link-system-path="taxonomy/term/31">Security</a>
+                  </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/tag/servers">Servers</a>
+                  </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/tag/sysadmin" data-drupal-link-system-path="taxonomy/term/21">SysAdmin</a>
+                  </li>
+        </ul>
+  
+            </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/news" data-drupal-link-system-path="news">News</a>
+                  </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/books" data-drupal-link-system-path="books">eBooks</a>
+                  </li>
+        </ul>
+  
+
+  </section>
+
+<section class="search-block-form block block-search block-search-form-block clearfix navbar__search col-xs-12 col-sm-4 col-md-4 col-md-offset-0" data-drupal-selector="search-block-form" id="block-linuxjournal-search" role="search">
+  
+      <h2 class="block-title sr-only">Search</h2>
+    
+
+      <form action="https://www.linuxjournal.com/search/node" method="get" id="search-block-form" accept-charset="UTF-8">
+  <div class="form-item js-form-item form-type-search js-form-type-search form-item-keys js-form-item-keys form-no-label form-group">
+      <label for="edit-keys" class="control-label sr-only">Search</label>
+  
+  
+  <div class="input-group"><input title="Enter the terms you wish to search for." data-drupal-selector="edit-keys" class="form-search form-control" placeholder="Search" type="search" id="edit-keys" name="keys" value="" size="15" maxlength="128"><span class="input-group-btn"><button type="submit" value="Search" class="button js-form-submit form-submit btn-primary btn icon-only" name=""><span class="sr-only">Search</span><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span></button></span></div>
+
+  
+  
+      <div id="edit-keys--description" class="description help-block">
+      Enter the terms you wish to search for.
+    </div>
+  </div>
+<div class="form-actions form-group js-form-wrapper form-wrapper" data-drupal-selector="edit-actions" id="edit-actions"></div>
+
+</form>
+
+  </section>
+
+
+  </div>
+
+        </div>
+            <div class="navbar-header">
+          <div class="region region-navigation">
+    <section id="block-mobilenavigation" class="block block-system block-system-menu-blockmenu-mobile-navbar clearfix col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-0 navbar__menu navbar__mobilenavigation">
+  
+    
+
+      
+      <ul class="menu menu--menu-mobile-navbar nav">
+                        <li>
+        <a href="https://www.linuxjournal.com/news" data-drupal-link-system-path="news">News</a>
+                  </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/popular" data-drupal-link-system-path="popular">Popular</a>
+                  </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/recent" data-drupal-link-system-path="recent">Recent</a>
+                  </li>
+        </ul>
+  
+
+  </section>
+
+  </div>
+
+      </div>
+          </header>
+    </div>
+  
+</div>
+  <div role="main" class="main-container container js-quickedit-main-content" id="main">
+    <div class="row">
+
+            
+            
+                  <section class="col-sm-12">
+
+                                      <div class="highlighted">  <div class="region region-highlighted">
+    <div data-drupal-messages-fallback="" class="hidden"></div>
+
+  </div>
+</div>
+                  
+                
+                
+                
+                          <a id="main-content"></a>
+            <div class="region region-content">
+      <article data-history-node-id="1021055" class="row bs-2col-stacked node node--type-story node--view-mode-full">
+  
+
+    <div class="col-sm-12 bs-region bs-region--top">
+    
+      <div class="field field--name-field-tags field--type-entity-reference field--label-hidden field--items">
+              <div class="field--item"><div about="/tag/sysadmin" typeof="schema:Thing">
+  
+      <h2><a href="https://www.linuxjournal.com/tag/sysadmin">
+            <div property="schema:name" class="field field--name-name field--type-string field--label-hidden field--item">SysAdmin</div>
+      </a></h2>
+      <span property="schema:name" content="SysAdmin" class="hidden"></span>
+
+  
+</div>
+</div>
+              <div class="field--item"><div about="/tag/tech-tips" typeof="schema:Thing">
+  
+      <h2><a href="https://www.linuxjournal.com/tag/tech-tips">
+            <div property="schema:name" class="field field--name-name field--type-string field--label-hidden field--item">Tech Tips</div>
+      </a></h2>
+      <span property="schema:name" content="Tech Tips" class="hidden"></span>
+
+  
+</div>
+</div>
+          </div>
+  
+            <div class="field field--name-node-title field--type-ds field--label-hidden field--item"><h1>
+  Fun with ethtool
+</h1>
+</div>
+      
+            <div class="field field--name-node-author field--type-ds field--label-hidden field--item">by <a title="View user profile." href="https://www.linuxjournal.com/users/jayson-broughton" lang="" about="/users/jayson-broughton" typeof="schema:Person" property="schema:name" datatype="">Jayson Broughton</a></div>
+      
+            <div class="field field--name-node-post-date field--type-ds field--label-hidden field--item">on May 25, 2011</div>
+      
+  </div>
+  
+    <div class="col-sm-9 bs-region bs-region--left">
+    
+            <div class="field field--name-field-node-image field--type-image field--label-hidden field--item">    <picture>
+                <!--[if IE 9]><video style="display: none;"><![endif]-->
+              <source srcset="/sites/default/files/styles/850x500/public/nodeimage/story/keyboard-small_8.jpg?itok=JGQG8Zh2 1x, /sites/default/files/styles/1700x1000/public/nodeimage/story/keyboard-small_8.jpg?itok=2LlsK0sa 2x" media="all and (min-width: 768px)" type="image/jpeg">
+              <source srcset="/sites/default/files/styles/360_250/public/nodeimage/story/keyboard-small_8.jpg?itok=FmAglPwd 1x, /sites/default/files/styles/720x500/public/nodeimage/story/keyboard-small_8.jpg?itok=cjy7G3r5 2x" media="all and (max-width: 767px)" type="image/jpeg">
+            <!--[if IE 9]></video><![endif]-->
+            <img src="./Fun with ethtool _ Linux Journal_files/keyboard-small_8.jpg" alt="" typeof="foaf:Image" class="img-responsive">
+
+  </picture>
+
+</div>
+      <div class="shariff" data-services="[&quot;twitter&quot;,&quot;facebook&quot;,&quot;linkedin&quot;,&quot;reddit&quot;,&quot;mail&quot;]" data-theme="white" data-css="complete" data-orientation="horizontal" data-twitter-via="linuxjournal" data-mail-url="mailto:" data-lang="en"><ul class="theme-white orientation-horizontal col-5"><li class="shariff-button twitter"><a href="https://twitter.com/intent/tweet?text=Fun%20with%20ethtool%20%7C%20Linux%20Journal&amp;url=https%3A%2F%2Fwww.linuxjournal.com%2Fcontent%2Ffun-ethtool&amp;via=linuxjournal" data-rel="popup" title="Share on Twitter" role="button" aria-label="Share on Twitter"><span class="fa fa-twitter"></span><span class="share_text">tweet</span></a></li><li class="shariff-button facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.linuxjournal.com%2Fcontent%2Ffun-ethtool" data-rel="popup" title="Share on Facebook" role="button" aria-label="Share on Facebook"><span class="fa fa-facebook"></span><span class="share_text">share</span></a></li><li class="shariff-button linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&amp;summary=&amp;title=Fun%20with%20ethtool%20%7C%20Linux%20Journal&amp;url=https%3A%2F%2Fwww.linuxjournal.com%2Fcontent%2Ffun-ethtool" data-rel="popup" title="Share on LinkedIn" role="button" aria-label="Share on LinkedIn"><span class="fa fa-linkedin"></span><span class="share_text">share</span></a></li><li class="shariff-button reddit"><a href="https://reddit.com/submit?url=https%3A%2F%2Fwww.linuxjournal.com%2Fcontent%2Ffun-ethtool&amp;title=Fun%20with%20ethtool%20%7C%20Linux%20Journal" data-rel="popup" title="Share on Reddit" role="button" aria-label="Share on Reddit"><span class="fa fa-reddit"></span><span class="share_text">share</span></a></li><li class="shariff-button mail"><a href="mailto:?subject=Fun%20with%20ethtool%20%7C%20Linux%20Journal&amp;body=https%3A%2F%2Fwww.linuxjournal.com%2Fcontent%2Ffun-ethtool" title="Send by email" role="button" aria-label="Send by email"><span class="fa fa-envelope"></span><span class="share_text">mail</span></a></li></ul></div>
+
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><p>
+Time to be honest here for a minute.  The open source community really
+has outdone themselves coming up with some very obscure names for packages.
+Let's take this list of packages for instance: emacs, gimp, gcc, mutt, grub,
+kyle rankin, parted, tar, mutt, vim.  Nine times out of ten, a common person
+is going to look at that list and become utterly confused over what package
+does what.  That's just the beauty (and beast) of naming software in the
+open source community.  But every so often a tool comes across my screen
+with such a blatantly obvious name that I just have to run a 'man' to
+make sure my eyes are not deceiving me.  In this case, it's ethtool.  Yes,
+a simple name, for such a powerful utility.  The name itself tells you what
+it does, an Ethernet Tool.  Tada! That's it, ethernet tool.
+</p><p>
+What Ethtool does is allows you to modify your Ethernet adapter settings
+inside of Linux.  What I'll be writing about today isn't the nitty gritty
+of ethernet adaptors (coalesce, setting rings, register dumping, etc).
+But what I will address are some really nifty tips and tricks I have
+learned over the last decade or so.
+</p><p>
+So without further adieu, let's get started. First things first we need to
+determine what Ethernet adaptor you are using.
+</p>
+<pre><code> ifconfig </code>
+</pre>
+<p>
+Keep in mind though, ethtool will only work against physical ethernet adapters.
+This means that bond0, tun0, and any other network device that is not a
+physical network device will not work with ethtool.
+</p><p>
+Now that you know your device, lets have some fun, shall we?  <strong>Note:</strong> Most
+linux kernels mark ethernet devices as ethX, where X is the # (starting at 0)
+of the physical Ethernet interface.
+</p>
+<h3>Driver Information and Statistics</h3>
+<p>
+I know I know, start with the least used things first.  But hey, someone might
+find this useful, right? I've probably had to query driver information a dozen
+times in 10+ years when dealing with kernel level issues, but someone is
+bound to run across this at some point in their life, and let me tell you,
+it can be easier to just run a single command, than digging through lsmod
+and hoping that a module picked up the driver properly.
+</p>
+<pre><code> ethtool -i ethX </code>
+</pre>
+Example output:
+<pre><samp>
+driver: r8169 
+version: 2.3LK-NAPI 
+firmware-version:
+bus-info:0000:02:00.0 
+</samp></pre>
+<p>
+Gathering statistics can also be useful for troubleshooting rx/tx issues with
+your network card.  By running the following command you will get statistics
+about your network card.
+</p>
+<pre><code> ethtool -S ethX </code>
+</pre>
+<pre><samp> 
+	NIC statistics:
+     tx_packets: 148683 
+     rx_packets: 179489 
+     tx_errors: 0 
+     rx_errors: 0 
+     rx_missed: 0 
+     align_errors: 0 
+     tx_single_collisions: 0 
+     tx_multi_collisions: 0 
+     unicast: 116884 
+     broadcast: 25361 
+     multicast: 61674 
+     tx_aborted: 0 
+     tx_underrun: 0
+</samp></pre>
+<p>
+From here you can see a list of transmitted, received and errored packets.
+This can be useful during network troubleshooting, combined with other
+network utilities such as tcpdump.
+</p>
+
+<h3>Tracing your Card</h3>
+<p>
+I'm sure this has happened to many of you, as I know it has happened to me.
+Ever had a server with more than 2 network cards? Raise your hand.  Ever had
+more than two? Ever had to trace what physical network card was recorded in
+linux as ethX?  Sure, you could do it the hard way: grab the MAC address off
+of ifconfig, plug all the cables into a managed switch and then dump the
+tables on the switch to find what MAC address goes where.  Or, follow the
+blinking lights with ethtool.  This one little switch has saved my bacon
+countless times, especially when setting up firewall/router appliances.
+</p>
+<code> ethtool -p ethX [N] </code> *where [N] is Number of seconds to blink.
+
+<samp> ethtool -p eth0 15 </samp> Blink ethernet device 0 for 15 seconds
+<p>
+Look there! Blinking lights at the back of your ethernet adaptor.  No need to
+hunt and peck to figure out what eth0 and eth1 is on your physical adaptor.
+'ZO RELAXEN UND WATSCHEN DER BLINKENLICHTEN.'
+</p>
+<h3>Testing your Ethernet Adapter</h3>
+<p>
+Now, this is one that I haven't had to use before, as it's been a rare day
+that an Ethernet adapter has gone out
+on me.  But nonetheless, this is still a useful switch to have in the sys
+admin's bag of tricks.  This will run some basic tests against
+your hardware ethernet interface.  There are two options with this test,
+an online test (tests nvram and a link test) and an offline test (register,
+memory, loopback, interrupt).  The offline test will more than likely boot
+your ethernet connection offline during testing, so be aware of this if you
+are running this against a production server or a machine that you only have
+remote access to.
+</p>
+<pre><code> ethtool -t ethX [offline|online] </code></pre>
+
+*Note some Ethernet devices don't support online or offline test. During this
+blog post I found 4 NIC's that didn't support testing, but a half dozen of
+them that did.
+
+<pre>The test result is PASS 
+The test extra info: 
+nvram test     (online)          0 
+link test      (online)          0 
+register test  (offline)         0 
+memory test    (offline)         0 
+loopback test  (offline)         0 
+interrupt test (offline)         0 
+</pre>
+
+
+<strong> Changing Ethernet Settings </strong> - If you run ethtool ethX without
+a switch, you will get the settings for your ethernet device as such:
+
+<pre> Settings for eth0:
+	Supported ports: [ TP MII ] 
+	Supported link modes:   10baseT/Half
+				10baseT/Full 100baseT/Half 100baseT/Full
+				1000baseT/Half 1000baseT/Full
+	Supports auto-negotiation: Yes 
+	Advertised link modes:  10baseT/Half
+				10baseT/Full 100baseT/Half 100baseT/Full
+				1000baseT/Half 1000baseT/Full
+	Advertised pause frame use: No 
+	Advertised auto-negotiation: Yes Link
+	partner advertised link modes:	10baseT/Half 10baseT/Full
+                         	        100baseT/Half 100baseT/Full
+	Link partner advertised pause frame use: No 
+	Link partner advertised auto-negotiation: Yes 
+	Speed: 100Mb/s Duplex: Full 
+	Port: MII 
+	PHYAD:0
+	Transceiver: internal 
+	Auto-negotiation: on 
+	Supports Wake-on: pumbg
+	Wake-on: g 
+	Current message level: 0x00000033 (51) 
+	Link detected: yes
+</pre>
+<p>
+This is a lot to process, but granted ethtool just prints it out line by
+line, sucking up as much space as it can.  It can be summed up as such: Device
+supports TP and MII, up to 1000baseT/Full, Auto-Negotiation.  Partner (Switch)
+support up to 100baseT/Full, and auto negotiation.  Actual settings of device:
+100Mb/s, Full Duplex, Running MII, Physical Address 0, Set to Auto negotiation,
+WoL is enabled and link is detected.  Of course there are some more parts,
+but these are pretty much the juicy tidbits that you need to know.
+</p><p>
+When I have a device that is acting up, I tend to run: ethtool ethX,
+check the Supported link modes, the Link partner advertised link modes
+and the actual speed and Duplex.  If my Supported link mode is set low
+(say 10/Half for some reason) but my switch supports 1000baseT/Full then
+I'll use ethtool -s ethX to change my ethernet settings to 1000baseT/Full.
+Just about anything you see from: ethtool ethX, can be changed with ethtool
+-S ethX.  In this case you would use the following:
+</p>
+<p>
+<code> ethtool -S eth0 speed 1000 duplex full autoneg on </code> 
+</p>
+<p><strong>Note</strong>: I set autoneg on just in case.  The device should have auto
+negotiated properly when powered up, but it didn't.  So for my own sanity
+I tend to just set auto-negotiation on.
+</p>
+<p>
+What you can also do with this switch is set Wake-On-Lan.  I won't be getting
+into Wake-On-Lan today as I have heavily documented it in a personal blogpost
+located at www.jaysonbroughton.com.
+</p>
+<h3>Conclusion</h3> 
+<p>
+I hope by know you have figured out that this is just a
+basic introduction to ethtool, and not a full course on ethernet standards,
+as I have left out some information and substituted what I felt was necessary
+information based on the years that I have been using ethernet utilities.
+There is so much more that you can use with ethtool, and combined with other
+such tools this can become one deadly tool in a sys admin's bag of tricks.
+</p></div>
+      
+            <div class="field field--name-dynamic-token-fieldnode-author field--type-ds field--label-hidden field--item"><div></div>
+
+</div>
+      
+    <section class="section--disqus">
+    <a id="comments-link" class="btn btn-default" href="https://www.linuxjournal.com/content/fun-ethtool#disqus_thread">No comments yet. Be the first!</a>
+
+    <div id="disqus_thread"></div>
+  <noscript>Our discussions are <a href="https://disqus.com/?ref_noscript" rel="nofollow">powered by Disqus</a>, which require JavaScript.</noscript>
+
+    
+</section>
+  </div>
+  
+    <div class="col-sm-3 bs-region bs-region--right">
+    
+            <div class="field field--name-dynamic-block-fieldnode-sidebar-image field--type-ds field--label-hidden field--item"><div class="views-element-container form-group"><div class="view view-sidebar-image view-id-sidebar_image view-display-id-block_1 js-view-dom-id-fddd4c2452b6d818d3140bcafe916e96eff374f6e69a4c3707f316bb06efb550">
+  
+    
+      
+      <div class="view-content">
+          <div class="views-row">
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><p><a href="https://www.linode.com/lp/brand-free-credit/?utm_source=linux_journal&amp;utm_medium=dis[%E2%80%A6]mpaign=display-linux_journal-side_rail&amp;utm_content=&amp;utm_term=" rel="nofollow" target="blank"><img alt="Linode Predictable Cloud" data-entity-type="file" data-entity-uuid="14963619-bd1f-413f-9abc-b94f8a1e1ecf" src="./Fun with ethtool _ Linux Journal_files/linode_predictable_cloud.png"></a></p>
+<p>&nbsp;</p>
+</div>
+      </div>
+
+    </div>
+  
+          </div>
+</div>
+</div>
+      
+            <div class="field field--name-dynamic-block-fieldnode-recent-content field--type-ds field--label-hidden field--item"><div class="views-element-container form-group"><div class="view view-related-content view-id-related_content view-display-id-block_2 js-view-dom-id-b142e3f00fd5376b0b2315c48e851f768f1363e1a389894969563d9a7a9ca0cb">
+  
+    
+      <div class="view-header">
+      <h2 class="block-title">Recent Articles</h2>
+    </div>
+      
+      <div class="view-content">
+          <div class="views-row"><div class="views-field views-field-field-node-image"><div class="field-content">  <a href="https://www.linuxjournal.com/content/self-hosted-static-homepages-dashy-vs-homer"><img src="./Fun with ethtool _ Linux Journal_files/self-hosted-static-homepages-dashy-vs-homer.jpg" width="75" height="75" alt="Self-Hosted Static Homepages: Dashy Vs. Homer" typeof="foaf:Image" class="img-responsive">
+
+</a>
+</div></div><div class="views-field views-field-title"><span class="field-content"><a href="https://www.linuxjournal.com/content/self-hosted-static-homepages-dashy-vs-homer" hreflang="en">Self-Hosted Static Homepages: Dashy Vs. Homer</a></span></div><div class="views-field views-field-uid"><span class="field-content"><a href="https://www.linuxjournal.com/users/brandon-hopkins" hreflang="en">Brandon Hopkins</a></span></div></div>
+    <div class="views-row"><div class="views-field views-field-field-node-image"><div class="field-content">  <a href="https://www.linuxjournal.com/content/gimp-pinch-life-after-desktop"><img src="./Fun with ethtool _ Linux Journal_files/gimp-in-a-pinch-life-after-desktop.jpg" width="75" height="75" alt="GIMP in a Pinch: Life after Desktop" typeof="foaf:Image" class="img-responsive">
+
+</a>
+</div></div><div class="views-field views-field-title"><span class="field-content"><a href="https://www.linuxjournal.com/content/gimp-pinch-life-after-desktop" hreflang="en">GIMP in a Pinch: Life after Desktop</a></span></div><div class="views-field views-field-uid"><span class="field-content"><a href="https://www.linuxjournal.com/users/alex-lee" hreflang="en">Alex Lee</a></span></div></div>
+    <div class="views-row"><div class="views-field views-field-field-node-image"><div class="field-content">  <a href="https://www.linuxjournal.com/content/geek-guide-purpose-built-linux-embedded-solutions"><img src="./Fun with ethtool _ Linux Journal_files/Screen Shot 2022-04-20 at 3.52.02 PM.png" width="75" height="75" alt="Geek Guide: Purpose-Built Linux for Embedded Solutions" typeof="foaf:Image" class="img-responsive">
+
+</a>
+</div></div><div class="views-field views-field-title"><span class="field-content"><a href="https://www.linuxjournal.com/content/geek-guide-purpose-built-linux-embedded-solutions" hreflang="en">Geek Guide: Purpose-Built Linux for Embedded Solutions</a></span></div><div class="views-field views-field-uid"><span class="field-content"><a href="https://www.linuxjournal.com/users/webmaster" hreflang="en">Webmaster</a></span></div></div>
+    <div class="views-row"><div class="views-field views-field-field-node-image"><div class="field-content">  <a href="https://www.linuxjournal.com/content/how-install-and-uninstall-kernelcare"><img src="./Fun with ethtool _ Linux Journal_files/how-to-install-and-uninstall-kernelcare.jpg" width="75" height="75" alt="How to Install and Uninstall KernelCare" typeof="foaf:Image" class="img-responsive">
+
+</a>
+</div></div><div class="views-field views-field-title"><span class="field-content"><a href="https://www.linuxjournal.com/content/how-install-and-uninstall-kernelcare" hreflang="en">How to Install and Uninstall KernelCare</a></span></div><div class="views-field views-field-uid"><span class="field-content"><a href="https://www.linuxjournal.com/users/suparna-ganguly" hreflang="en">Suparna Ganguly</a></span></div></div>
+    <div class="views-row"><div class="views-field views-field-field-node-image"><div class="field-content">  <a href="https://www.linuxjournal.com/content/whats-kernelcare"><img src="./Fun with ethtool _ Linux Journal_files/what-is-kernelcare.jpg" width="75" height="75" alt="What’s KernelCare?" typeof="foaf:Image" class="img-responsive">
+
+</a>
+</div></div><div class="views-field views-field-title"><span class="field-content"><a href="https://www.linuxjournal.com/content/whats-kernelcare" hreflang="en">What’s KernelCare?</a></span></div><div class="views-field views-field-uid"><span class="field-content"><a href="https://www.linuxjournal.com/users/suparna-ganguly" hreflang="en">Suparna Ganguly</a></span></div></div>
+    <div class="views-row"><div class="views-field views-field-field-node-image"><div class="field-content">  <a href="https://www.linuxjournal.com/content/getting-started-docker-semi-self-hosting-linode"><img src="./Fun with ethtool _ Linux Journal_files/getting-started-with-docker-semi-self-hosting-on-linode.jpg" width="75" height="75" alt="Getting Started with Docker Semi-Self-Hosting on Linode" typeof="foaf:Image" class="img-responsive">
+
+</a>
+</div></div><div class="views-field views-field-title"><span class="field-content"><a href="https://www.linuxjournal.com/content/getting-started-docker-semi-self-hosting-linode" hreflang="en">Getting Started with Docker Semi-Self-Hosting on Linode</a></span></div><div class="views-field views-field-uid"><span class="field-content"><a href="https://www.linuxjournal.com/users/david-burgess" hreflang="en">David Burgess</a></span></div></div>
+
+    </div>
+  
+          </div>
+</div>
+</div>
+      
+            <div class="field field--name-dynamic-block-fieldnode-sponsors field--type-ds field--label-hidden field--item"><div class="views-element-container form-group"><div class="view view-latest-sponsor-block view-id-latest_sponsor_block view-display-id-block_1 js-view-dom-id-4a6785ad0985458e56f02027d780dd6bad4747dcb8d979c3330d968a71ff7de9">
+  
+    
+      <div class="view-header">
+      
+    </div>
+      
+      <div class="view-content">
+          <div class="views-row">
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><p><a href="https://www.linode.com/lp/brand-free-credit/?utm_source=linux_journal&amp;utm_medium=dis[%E2%80%A6]mpaign=display-linux_journal-side_rail&amp;utm_content=&amp;utm_term=" rel="nofollow" target="blank"><img alt="Linode Predictable Cloud" data-entity-type="file" data-entity-uuid="14963619-bd1f-413f-9abc-b94f8a1e1ecf" src="./Fun with ethtool _ Linux Journal_files/linode_predictable_cloud.png"></a></p>
+<p>&nbsp;</p>
+</div>
+      </div>
+
+    </div>
+  
+          </div>
+</div>
+</div>
+      
+  </div>
+  
+  
+</article>
+
+
+
+  </div>
+
+              </section>
+
+                </div>
+  </div>
+
+      <footer class="footer container" role="contentinfo">
+        <div class="region region-footer">
+    <section class="views-element-container block block-views block-views-blocknewsletter-promo-block-block-1 clearfix" id="block-views-block-newsletter-promo-block-block-1">
+  
+    
+
+      <div class="form-group"><div class="view view-newsletter-promo-block view-id-newsletter_promo_block view-display-id-block_1 js-view-dom-id-3c986585c4a46faa8e4390bcd6451a55f9a4ecead4c577908809cafcba73b5e2">
+  
+    
+      
+      <div class="view-content">
+          <div class="views-row">
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><div class="newsletter-bottom">
+<div class="col-md-9 col-sm-12 signup-form">
+<!--<h3>Linux Journal Week in Review</h3>
+<p>Sign up to get all the good stuff delivered to your inbox every week.</p>
+
+
+<form id="subForm" class="js-cm-form" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="A61C50BEC994754B1D79C5819EC1255CDBC34DDF3E170B13E2BAC2D68C42BF424F853383C84F5BAE38EAB4CFA5C73907CAC074FF8192503AF80F3699F7FE5CE1">	
+<div class="flexform">-->
+    <!--<label for="fieldEmail">Email</label>
+    <br />-->
+    <!--<input id="fieldEmail" name="cm-gjjtdh-gjjtdh" type="email" class="js-cm-email-input" placeholder="Enter your email. Get the newsletter." 
+    required />
+
+    <button class="js-cm-submit-button" type="submit">Sign Up</button>
+</div>
+<div>
+    <input id="cm-privacy-consent" name="cm-privacy-consent" required type="checkbox"
+    />
+    <label for="cm-privacy-consent">I give my consent to be emailed</label>
+    <input id="cm-privacy-consent-hidden"
+    name="cm-privacy-consent-hidden" type="hidden" value="true" />
+</div>
+
+</form>
+<script type="text/javascript" src="https://js.createsend1.com/javascript/copypastesubscribeformlogic.js"></script>
+</div>-->
+<!--<div class="col-md-3 col-sm-12 subs-callout">
+<img src="/sites/default/files/styles/large/public/2019-01/LJ294-Jan2019-Cover_0.jpg" width="100px" />
+
+<h3>The Value of Open Source Journalism</h3>
+<p>
+Subscribe and support our coverage for technology's biggest thinkers – with up to 52% savings.
+</p>
+<strong><a href="https://www.linuxjournal.com/subscribe">Subscribe <i class="fa fa-angle-double-right" aria-hidden="true"></i></a> 
+</strong>
+
+
+
+</div>-->
+</div>
+
+</div>
+      </div>
+
+    </div>
+  
+          </div>
+</div>
+
+  </div></section>
+
+
+  </div>
+
+      		<div class="footer-blocks col-sm-12">
+                <div class="col-md-6 col-sm-12 footer-left">
+                        <div class="region region-footer-left">
+    <section id="block-connectwithusfooter" class="block block-block-content block-block-content5e722bd4-5e08-454b-8507-956089bfa661 clearfix">
+  
+    
+
+      
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><div class="footer-heading">Connect With Us <span class="social-media"><a href="https://youtube.com/linuxjournalonline" alt="Linux Journal on YouTube"><i class="fa fa-youtube fa-2x"></i></a><a href="https://www.facebook.com/linuxjournal/" alt="Linux Journal on Facebook"><i class="fa fa-facebook-f fa-2x"></i></a><a href="https://twitter.com/linuxjournal" alt="Linux Journal on Twitter"><i class="fa fa-twitter fa-2x"></i></a></span></div>
+
+<p>Linux Journal, representing 25+ years of publication, is the original magazine of the global Open Source community.</p></div>
+      
+  </section>
+
+<section id="block-linuxjournal-block-9" class="block block-block-content block-block-content8669793b-e217-4426-a79e-eb3c21ede127 clearfix">
+  
+    
+
+      
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><div id="copyright">© 2022 Slashdot Media, LLC. All rights reserved.</div>
+</div>
+      
+  </section>
+
+<section id="block-privacyterms" class="block block-block-content block-block-contenta203b8bd-80ef-4982-bf6e-784dd7b44120 clearfix">
+  
+    
+
+      
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><ul class="menu menu--footer-submenu nav" id="terms-nav">
+	<li><a href="https://slashdotmedia.com/privacy-statement/" rel="nofollow" target="_blank">PRIVACY POLICY</a></li>
+	<li><a href="https://slashdotmedia.com/terms-of-use/" rel="nofollow" target="_blank">TERMS OF SERVICE</a></li>
+	<li><a href="https://www.linuxjournal.com/sponsors">ADVERTISE</a></li>
+<li><a href="http://slashdotmedia.com/opt-out-choices" title="Opt Out" rel="nofollow" target="_blank">OPT OUT</a></li></ul></div>
+      
+  </section>
+
+
+  </div>
+
+                  </div>
+        
+        		<div class="col-md-4 col-sm-8 footer-middle">
+                        <div class="region region-footer-middle">
+    <nav role="navigation" aria-labelledby="block-footermenucolumn2-menu" id="block-footermenucolumn2">
+            
+  <h2 class="visually-hidden" id="block-footermenucolumn2-menu">Footer Menu Column 2</h2>
+  
+
+        
+      <ul class="menu menu--footer-menu-column-2 nav">
+                        <li>
+        <a href="https://www.linuxjournal.com/content/masthead" data-drupal-link-system-path="node/1007727">Masthead</a>
+                  </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/author" data-drupal-link-system-path="node/1009249">Authors</a>
+                  </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/form/contact" data-drupal-link-system-path="webform/contact">Contact Us</a>
+                  </li>
+        </ul>
+  
+
+  </nav>
+<nav role="navigation" aria-labelledby="block-footermenucolumn3-menu" id="block-footermenucolumn3">
+            
+  <h2 class="visually-hidden" id="block-footermenucolumn3-menu">Footer Menu Column 3</h2>
+  
+
+        
+      <ul class="menu menu--footer-menu-column-3 nav">
+                        <li>
+        <a href="https://www.linuxjournal.com/rss_feeds" data-drupal-link-system-path="node/1000457">RSS Feeds</a>
+                  </li>
+                        <li>
+        <a href="https://www.linuxjournal.com/aboutus" data-drupal-link-system-path="node/1000267">About Us</a>
+                  </li>
+        </ul>
+  
+
+  </nav>
+
+  </div>
+
+                  </div>
+        
+                </div>
+    </footer>
+  
+</div> 
+  </div>
+
+    
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/1021055","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","bootstrap":{"forms_has_error_value_toggle":1,"popover_enabled":1,"popover_animation":1,"popover_container":"body","popover_content":"","popover_delay":"0","popover_html":0,"popover_placement":"right","popover_selector":"","popover_title":"","popover_trigger":"click","popover_trigger_autoclose":1},"linuxjournal":{"disqus":{"origin":"https:\/\/www.linuxjournal.com","prettyUrl":"\/content\/fun-ethtool","fullUrl":"https:\/\/www.linuxjournal.com\/content\/fun-ethtool","embedUrl":"https:\/\/linuxjournal.disqus.com\/embed.js","shortname":"linuxjournal"}},"statistics":{"data":{"nid":"1021055"},"url":"\/core\/modules\/statistics\/statistics.php"},"ajaxTrustedUrl":{"\/search\/node":true},"user":{"uid":0,"permissionsHash":"c6d560e532040877d2aa806f24e67b7bac958bcc1fbe108029a267aa475a1917"}}</script>
+<script src="./Fun with ethtool _ Linux Journal_files/ready.min.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/jquery.min.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/underscore-min.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/jquery-extend-3.4.0.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/jquery.once.min.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/drupalSettingsLoader.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/drupal.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/drupal.init.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/picturefill.min.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/drupal.bootstrap.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/attributes.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/theme.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/affix.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/alert.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/button.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/carousel.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/collapse.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/dropdown.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/modal.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/tooltip.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/popover.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/scrollspy.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/tab.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/transition.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/lj-consentmanager.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/popover.js(1).download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/statistics.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/count.js.download" async="" defer="" id="dsq-count-scr"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/lj-disqus.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/shariff.min.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/shariff.js.download"></script>
+<script src="./Fun with ethtool _ Linux Journal_files/matchMedia.min.js.download"></script>
+
+    <!-- START EMBED -->
+    <script>
+      bizx.cmp.ifConsent('', 'all', function () {
+    	bizx.cmp.embedScript("https://api.b2c.com/api/init-448i7exgpyqpr9c144q.js");
+       });
+    </script>
+<noscript><img src="https://api.b2c.com/api/noscript-448i7exgpyqpr9c144q.gif"></noscript>
+<!-- END EMBED -->
+<!-- Matomo -->
+<script type="text/javascript">
+var _paq = _paq || [];
+function initPiwik() {
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://analytics.linuxjournal.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '50']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+}
+</script>
+<noscript><p><img src="https://analytics.linuxjournal.com/piwik.php?idsite=50&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
+<div class="modal-custom overlay-custom" id="ccpa-modal" style="margin-left: 0; display: none; max-width: 100%; width: 100%">
+    <div id="modal-content" class="modal-content">
+        <div class="modal-header" id="ccpa-modal-content-destination"></div>
+        <span class="close" id="modal-close">×</span>
+    </div>
+</div>
+  
+
+<div style="position: absolute; margin: 0px; padding: 0px; border: 0px; height: 0px; width: 0px; overflow: hidden;"><span style="font: 999px &quot;Nimbus Sans&quot;, monospace;">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_~</span><a aria-hidden="true"></a><button aria-hidden="true">x</button><input aria-hidden="true"></div></body></html>

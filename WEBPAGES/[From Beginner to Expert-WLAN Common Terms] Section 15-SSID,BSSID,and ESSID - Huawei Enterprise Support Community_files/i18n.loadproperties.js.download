@@ -1,0 +1,15 @@
+
+jQuery.i18n.properties({//加载资浏览器语言对应的资源文件
+    name: 'string', //资源文件名称    modify-wzm js语言包路径前缀从base中获取
+    path: document.getElementsByTagName('base')[0].href + '/huawei/static/js/language/lang_' + getLanguageFromCookie() + '/', //资源文件路径
+    mode: 'map', //用Map的方式使用资源文件中的值
+    cache: true,
+    hashcode: 'undefined'==typeof(VERHASH) ? '' : VERHASH,
+    language: " "
+});
+
+function getLanguageFromCookie(){
+    var language = jQuery('html').attr('lang');
+    language = language ? language : 'zh';
+    return language;
+}

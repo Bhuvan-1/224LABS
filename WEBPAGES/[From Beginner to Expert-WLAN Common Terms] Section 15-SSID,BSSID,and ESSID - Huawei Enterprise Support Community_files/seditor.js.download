@@ -1,0 +1,336 @@
+/*
+	[Discuz!] (C)2001-2099 Comsenz Inc.
+	This is NOT a freeware, use is subject to license terms
+
+	$Id: seditor.js 28601 2012-03-06 02:49:55Z monkey $
+*/
+
+function seditor_showimgmenu(seditorkey) {
+	var imgurl = $(seditorkey + '_image_param_1').value;
+	var width = parseInt($(seditorkey + '_image_param_2').value);
+	var height = parseInt($(seditorkey + '_image_param_3').value);
+	var extparams = '';
+	if(width || height) {
+		extparams = '=' + width + ',' + height
+	}
+	seditor_insertunit(seditorkey, '[img' + extparams + ']' + imgurl, '[/img]', null, 1);
+	$(seditorkey + '_image_param_1').value = '';
+	hideMenu();
+}
+
+function seditor_menu(seditorkey, tag, showid) {
+	var sel = false;
+	if(!isUndefined($(seditorkey + 'message').selectionStart)) {
+		sel = $(seditorkey + 'message').selectionEnd - $(seditorkey + 'message').selectionStart;
+	} else if(document.selection && document.selection.createRange) {
+		$(seditorkey + 'message').focus();
+		var sel = document.selection.createRange();
+		$(seditorkey + 'message').sel = sel;
+		sel = sel.text ? true : false;
+	}
+	if(sel) {
+		seditor_insertunit(seditorkey, '[' + tag + ']', '[/' + tag + ']');
+		return;
+	}
+	var ctrlid = seditorkey + tag;
+	var menuid = ctrlid + '_menu';
+	if(!$(menuid)) {
+		var wechat_invite_confirm = '';
+		var formeditorkey = '';
+		switch(tag) {
+			case 'at':
+				curatli = 0;
+				atsubmitid = ctrlid + '_submit';
+				/*微信邀请 T8090*/
+				if (showid == 'wechat_invite') {
+					setTimeout(function() {atFilter('', 'at_list', 'atListSet');}, 100);
+					formeditorkey = 'wechat_invite_';
+					wechat_invite_confirm = 'showWeChatInvite();';
+				} else {
+					setTimeout(function() {atFilter('', 'at_list', 'atListSet');jQuery('#'+seditorkey + 'message').focusEnd();}, 100);
+					formeditorkey = seditorkey;
+				}
+				str = '<b class="seditorTitle">'+ jQuery.i18n.prop("seditor_402") +':</b><br />'
+					+'<input type="text" id="atkeyword" onclick="clearInput()" value="'+ jQuery.i18n.prop("google_269")
+						+'" class="px" onblur="tips(this.value)" onkeyup="searchUser(this.value);" />'
+					+'<p id="searchUser">&nbsp;<p>'
+					+'<p id="atExpert">'
+						+'<input type="checkbox" name="user" value="" />'+ jQuery.i18n.prop("at_expert") +'：<span></span>'
+						+'<a href="javascript:getExpert(\'' + formeditorkey + '\');">'+ jQuery.i18n.prop("threadsort_408") +'>></a>'
+					+'</p>'
+					+'<p id="atFriend">'
+						+'<input type="checkbox" name="user" value="" />'+ jQuery.i18n.prop("at_friend") +'：<span></span>'
+						+'<a href="javascript:getFriend();">'+ jQuery.i18n.prop("threadsort_408") +'>></a>'
+					+'</p>'
+					+'<p class="linkman">'+ jQuery.i18n.prop("seditor_403") +':</p>'
+					+'<div class="p_pop" id="at_list"><ul></ul></div>';
+
+				submitstr = 'seditor_insertunit(\'' + formeditorkey + '\', \'@\' + $(\'atkeyword\').value.replace(/<\\/?b>/g, \'\')+\' \'); hideMenu();';
+				break;
+			case 'url':
+				str = ''+jQuery.i18n.prop("seditor_394")+':<br />'
+					+'<input type="text" id="' + ctrlid + '_param_1" sautocomplete="off" style="width:98%" value="" class="px" />'
+					+'<br />'+jQuery.i18n.prop("seditor_395")+':<br />'
+					+'<input type="text" id="' + ctrlid + '_param_2" style="width:98%" value="" class="px" />';
+
+				submitstr = "$('" + ctrlid + "_param_2').value !== '' ? seditor_insertunit('" + seditorkey
+							+ "', '[url='+seditor_squarestrip($('" + ctrlid + "_param_1').value)+']'+$('" + ctrlid
+							+ "_param_2').value, '[/url]', null, 1) : seditor_insertunit('" + seditorkey
+							+ "', '[url]'+$('" + ctrlid + "_param_1').value, '[/url]', null, 1);hideMenu();";
+				break;
+			case 'code':
+			case 'quote':
+				var tagl = {'quote' : ''+jQuery.i18n.prop("seditor_396")+'', 'code' : ''+jQuery.i18n.prop("seditor_397")+''};
+				str = tagl[tag] + ':<br /><textarea id="' + ctrlid + '_param_1" style="width:98%" cols="50" rows="5" class="txtarea"></textarea>';
+				submitstr = "seditor_insertunit('" + seditorkey + "', '[" + tag + "]'+$('" + ctrlid + "_param_1').value, '[/" + tag + "]', null, 1);hideMenu();";
+				break;
+			case 'img':
+				str = jQuery.i18n.prop("seditor_398") + ':<br />'
+					+'<input type="text" id="'+ ctrlid +'_param_1" style="width:98%" value="" class="px" onchange="loadimgsize(this.value, \''+ seditorkey +'\',\''+ tag +'\')" />'
+					+'<p class="mtm">'
+						+jQuery.i18n.prop("key_width_o")
+						+': <input type="text" id="' + ctrlid + '_param_2" style="width: 15%" value="" class="px" />&nbsp;'
+						+jQuery.i18n.prop("key_height_o")
+						+': <input type="text" id="' + ctrlid + '_param_3" style="width: 15%" value="" class="px" />'
+					+'</p>';
+				submitstr = "seditor_insertunit('" + seditorkey + "', '[img' + ($('" + ctrlid
+							+ "_param_2').value !== '' && $('" + ctrlid + "_param_3').value !== '' ? '='+$('"
+							+ ctrlid + "_param_2').value+','+$('" + ctrlid
+							+ "_param_3').value : '')+']'+seditor_squarestrip($('" + ctrlid
+							+ "_param_1').value), '[/img]', null, 1);hideMenu();";
+				break;
+		}
+		var menu = document.createElement('div');
+		menu.id = menuid;
+		menu.style.display = 'none';
+		menu.className = 'p_pof upf';
+		menu.style.width = '270px';
+		$('append_parent').appendChild(menu);
+		var insert = '';
+		var hideInsert = '';
+		insertChar = function(){
+			var content = JQ('#'+seditorkey + 'message').val();
+			content +='@';
+			JQ('#'+seditorkey + 'message').val('').focus().val(content);
+		}
+		if(tag=='at'){
+			insert = 'onclick="insertChar()"';
+			hideInsert = 'insertChar();';
+		}
+
+		/*微信邀请 T8090*/
+		if ( tag=='at' && showid == 'wechat_invite' ) {
+			insert = '';
+			hideInsert = '';
+		}
+
+		menu.innerHTML = '<input type="hidden" id="'+formeditorkey+'scene" />'
+						+'<span class="y">'
+						+'<a class="flbc" href="javascript:hideMenu();"'+insert+'>'+jQuery.i18n.prop("seditor_399")+'</a>'
+						+'</span>'
+						+'<div class="p_opt cl">'
+							+'<form onsubmit="' + submitstr + ';' + wechat_invite_confirm + 'return false;" autocomplete="off">'
+								+'<div>' + str + '</div>'
+								+'<div class="pns mtn">'
+									+'<button type="submit" id="' + ctrlid + '_submit" class="pn pnc">'
+										+'<strong>'+jQuery.i18n.prop("seditor_400")+'</strong>'
+									+'</button>'
+									+'<button type="button" onClick="'+hideInsert+'hideMenu()" class="pn">'
+										+'<em>'+jQuery.i18n.prop("seditor_401")+'</em>'
+									+'</button>'
+								+'</div>'
+							+'</form>'
+						+'</div>';
+	}
+
+	var obj = {'ctrlid':ctrlid, 'evt':'click', 'duration':3, 'cache':0, 'drag':1, 'resetOffset':1};
+	/*微信绑定 T8090*/
+	if ( typeof showid != 'undefined' ) {
+		obj.showid = showid;
+		obj.menuid = menuid;
+	}
+	showMenu(obj);
+	/**
+	 * 调整@好友的弹窗位置，避免撑大页面 add 2017/03/15
+	 */
+	var top = parseInt($(menuid).style.top);
+	var left = parseInt($(menuid).style.left);
+	$(menuid).style.top = (top - 230) + 'px';
+	$(menuid).style.left = (left + 20) + 'px';
+
+	//聊天框重新计算代码弹框等位置
+	if('pmcode_menu' == menuid || 'pmurl_menu' == menuid || 'pmquote_menu' == menuid || 'pmurl_menu' == menuid){
+        var parentTop = JQ('.pm').offset().top - JQ(window).scrollTop();
+        var parentLeft = JQ('.pm').offset().left
+        $(menuid).style.top = (parentTop+160)+ 'px';
+        $(menuid).style.left = (parentLeft+60)+ 'px';
+    }
+
+}
+
+function seditor_squarestrip(str) {
+	str = str.replace('[', '%5B');
+	str = str.replace(']', '%5D');
+	return str;
+}
+
+function seditor_insertunit(key, text, textend, moveend, selappend) {
+	/**
+	 * 判断是否优化后的@功能，使用不同逻辑处理 modify by hyp 2017/03/24
+	 */
+	var elem = JQ("input[name='user']:checked");
+	var filterstr = '';
+	/*微信邀请*/
+	if ( 'wechat_invite_' == key ) {
+		text = '';
+	}
+	if(elem.length > 0){
+		text = '';
+		elem.each(function(){
+			text += JQ(this).val();
+		});
+		//MODIFY-LLS T3636解决@某个用户组或专家组报没加入圈子
+		var atUser = JQ("#at_list").find("input[name='user']:checked");
+		if(atUser.length > 0) {
+			atUser.each(function(){
+				filterstr += JQ(this).val().replace(/ /ig,' ');
+			});
+		}
+		var atFriend = JQ("#atFriend").find("input[name='user']:checked");
+		var friend = '';
+		if(atFriend.length>0 && atFriend.val().length>0){
+			friend = atFriend.val().replace(/ /ig,' ');
+			if(filterstr!=''){
+				filterstr = filterstr+' '+friend;
+			}else{
+				filterstr = friend;
+			}
+		}
+	}
+	var flag =true;
+	// MODIFY-LLS T3490 @好友验证好友是否加圏
+	if( filterstr!='' && typeof(atForumid) != "undefined" && atForumid>0 && text.indexOf('@')>-1 && text.indexOf('url=')==-1 && text.indexOf('[quote]')==-1 && text.indexOf('code')==-1&& text.indexOf('~')=='-1'){
+		jQuery.ajax({
+			url:'forum.php?mod=group&action=checkJoin&key=' + key,
+			type:'post',
+			data:{
+				nickname:filterstr,
+				fid:atForumid,
+				tid:"undefined" != typeof(tid)  ? tid : ''
+			},
+			dataType:'json',
+			async:false,
+			success:function(response){
+				if(response.status=='error'){
+					showDialog(response.msg,'error');
+					flag = false;
+				}
+			}
+		})
+	}
+	//以：开头表情符号前面加空格
+	if(/^:/.test(text)){
+		text = ' ' + text;
+	}
+	if(flag){
+		if($(key + 'message')) {
+			$(key + 'message').focus();
+		}
+		textend = isUndefined(textend) ? '' : textend;
+		moveend = isUndefined(textend) ? 0 : moveend;
+		selappend = isUndefined(selappend) ? 1 : selappend;
+		startlen = strlen(text);
+		endlen = strlen(textend);
+		if(!isUndefined($(key + 'message').selectionStart)) {
+			if(selappend) {
+				var opn = $(key + 'message').selectionStart + 0;
+				if(textend != '') {
+					text = text + $(key + 'message').value.substring($(key + 'message').selectionStart, $(key + 'message').selectionEnd) + textend;
+				}
+				$(key + 'message').value = $(key + 'message').value.substr(0, $(key + 'message').selectionStart) + text + $(key + 'message').value.substr($(key + 'message').selectionEnd);
+				if(!moveend) {
+					$(key + 'message').selectionStart = opn + strlen(text) - endlen;
+					$(key + 'message').selectionEnd = opn + strlen(text) - endlen;
+				}
+			} else {
+				text = text + textend;
+				$(key + 'message').value = $(key + 'message').value.substr(0, $(key + 'message').selectionStart) + text + $(key + 'message').value.substr($(key + 'message').selectionEnd);
+			}
+		} else if(document.selection && document.selection.createRange) {
+			var sel = document.selection.createRange();
+			if(!sel.text.length && $(key + 'message').sel) {
+				sel = $(key + 'message').sel;
+				$(key + 'message').sel = null;
+			}
+			if(selappend) {
+				if(textend != '') {
+					text = text + sel.text + textend;
+				}
+				sel.text = text.replace(/\r?\n/g, '\r\n');
+				if(!moveend) {
+					sel.moveStart('character', -endlen);
+					sel.moveEnd('character', -endlen);
+				}
+				sel.select();
+			} else {
+				sel.text = text + textend;
+			}
+		} else {
+			$(key + 'message').value += text;
+		}
+		hideMenu(2);
+		if(BROWSER.ie) {
+			doane();
+		}
+	}
+}
+
+function seditor_ctlent(event, script) {
+	if(event.ctrlKey && event.keyCode == 13 || event.altKey && event.keyCode == 83) {
+			eval(script);
+	}
+}
+
+function loadimgsize(imgurl, editor, p) {
+	var editor = !editor ? editorid : editor;
+	var s = new Object();
+	var p = !p ? '_image' : p;
+	s.img = new Image();
+	s.img.src = imgurl;
+	s.loadCheck = function () {
+		if(s.img.complete) {
+			$(editor + p + '_param_2').value = s.img.width ? s.img.width : '';
+			$(editor + p + '_param_3').value = s.img.height ? s.img.height : '';
+		} else {
+			setTimeout(function () {s.loadCheck();}, 100);
+		}
+	};
+	s.loadCheck();
+}
+JQ.fn.setCursorPosition = function(position) {
+	if (this.lengh == 0)
+		return this;
+	return JQ(this).setSelection(position, position);
+};
+JQ.fn.setSelection = function(selectionStart, selectionEnd) {
+	if (this.lengh == 0)
+		return this;
+	input = this[0];
+
+	if (input.createTextRange) {
+		var range = input.createTextRange();
+		range.collapse(true);
+		range.moveEnd('character', selectionEnd);
+		range.moveStart('character', selectionStart);
+		range.select();
+	} else if (input.setSelectionRange) {
+		input.focus();
+		input.setSelectionRange(selectionStart, selectionEnd);
+	}
+
+	return this;
+};
+JQ.fn.focusEnd = function() {
+	this.setCursorPosition(this.val().length);
+};
+

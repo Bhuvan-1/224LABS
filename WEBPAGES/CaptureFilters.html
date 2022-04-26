@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://wiki.wireshark.org/CaptureFilters -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="MobileOptimized" content="width">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="./CaptureFilters_files/app-ad43ca64b295d8444b10f22ee868f18429268af498f1bc515434878b690e37a2.css" media="all">
+  <link rel="stylesheet" type="text/css" href="./CaptureFilters_files/print-512498c368be0d3fb1ba105dfa84289ae48380ec9fcbef948bd4e23b0b095bfb.css" media="print">
+
+  
+  
+
+  <script>
+  var criticMarkup = '';
+	var baseUrl = '';
+	var uploadDest = 'uploads';
+	var perPageUploads = '';
+	if (perPageUploads == 'true') {
+	  uploadDest = uploadDest + window.location.pathname.replace(/.*gollum\/[-\w]+\//, "/").replace(/\.[^/.]+$/, "").replace(baseUrl, "")
+	}
+	  var pageFullPath = 'CaptureFilters.md';
+    var pageFormat   = 'markdown';
+
+  </script>
+  <script src="./CaptureFilters_files/app-0fd228e26bfbe6fe31a2da268eb0e98e780c1191c1a918adf383377946e9c838.js.download" type="text/javascript"></script>
+  
+
+  <title>CaptureFilters</title>
+</head>
+<body class="webkit">
+<div class="container-lg clearfix">
+<div id="wiki-wrapper" class="page">
+<div id="head">
+	<div id="logo" style="margin-top:1.5em"><a href="https://wiki.wireshark.org/"><img src="./CaptureFilters_files/wsbadge@186x57.png"></a></div>
+<nav class="TableObject actions pt-4 px-2 px-lg-0 overflow-x-scroll">
+  <div class="TableObject-item hide-lg hide-xl">
+    <details class="details-reset details-overlay">
+      <summary class="btn btn-invisible" aria-haspopup="true">
+        <span aria-label="Open menu">☰</span>
+      </summary>
+    
+      <div class="SelectMenu mx-sm-2">
+        <div class="SelectMenu-modal">
+          <div class="SelectMenu-divider py-3">
+            <h2 class="h6">Current Page</h2>
+            <div>CaptureFilters</div>
+          </div>
+    
+            <a class="SelectMenu-item" href="https://wiki.wireshark.org/gollum/history/CaptureFilters.md" role="menuitem">
+              <span>History</span>
+            </a>
+    
+    
+          <div class="SelectMenu-divider py-3">
+            <h2 class="h6">Main Menu</h2>
+          </div>
+    
+          <div class="SelectMenu-list">
+            <a class="SelectMenu-item" role="menuitem" href="https://wiki.wireshark.org/">
+              Home
+            </a>
+    
+              <a class="SelectMenu-item" role="menuitem" href="https://wiki.wireshark.org/gollum/overview">
+                Overview
+              </a>
+    
+              <a class="SelectMenu-item" href="https://wiki.wireshark.org/gollum/latest_changes" role="menuitem">
+                Latest Changes
+              </a>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="TableObject-item hide-sm hide-md">
+    <a class="btn btn-sm" id="minibutton-home" href="https://wiki.wireshark.org/">
+      Home
+    </a>
+  </div>
+
+  <div class="TableObject-item TableObject-item--primary px-2">
+    <form class="search-form" action="https://wiki.wireshark.org/gollum/search" method="get" id="search-form">
+    	<input type="text" class="form-control input-block" name="q" id="search-query" placeholder="Search" aria-label="Search site" autocomplete="off">
+    </form>  </div>
+
+  <div class="TableObject-item hide-sm hide-md">
+    <div class="BtnGroup d-flex">
+        <a class="btn BtnGroup-item btn-sm" href="https://wiki.wireshark.org/gollum/overview" id="minibutton-overview">
+          Overview
+        </a>
+
+        <a class="btn BtnGroup-item btn-sm" href="https://wiki.wireshark.org/gollum/latest_changes" id="minibutton-latest-changes">
+          Latest Changes
+        </a>
+    </div>
+  </div>
+
+  <div class="TableObject-item px-2">
+    <div class="BtnGroup d-flex">
+        <a class="btn BtnGroup-item btn-sm hide-sm hide-md" href="https://wiki.wireshark.org/gollum/history/CaptureFilters.md" id="minibutton-history">
+          History
+        </a>
+
+    </div>
+  </div>
+
+</nav>
+
+</div>
+
+<div id="wiki-content" class="px-2 px-lg-0">
+	<h1 class="pt-4">CaptureFilters</h1>
+	<div class="breadcrumb"></div>
+
+	<div class="">
+	  <div id="wiki-body" class="gollum-markdown-content">
+	    <div class="main-content clearfix container-lg">
+	      <div class="markdown-body  ">
+	        
+	        <h1 class="editable"><a class="anchor" id="capturefilters" href="https://wiki.wireshark.org/CaptureFilters#capturefilters"></a>CaptureFilters<a class="anchor edit" id="capturefilters" href="https://wiki.wireshark.org/gollum/edit/CaptureFilters.md#capturefilters"></a></h1>
+
+<p dir="auto">An overview of the capture filter syntax can be found in the <a href="http://www.wireshark.org/docs/wsug_html_chunked/ChCapCaptureFilterSection.html">User's Guide</a>. A complete reference can be found in the expression section of the <a href="http://www.tcpdump.org/manpages/pcap-filter.7.html">pcap-filter(7) manual page</a>.</p>
+
+<p dir="auto">Wireshark uses the same syntax for capture filters as <a href="http://www.tcpdump.org/">tcpdump</a>, <a href="https://wiki.wireshark.org/WinDump">WinDump</a>, <a href="http://analyzer.polito.it/">Analyzer</a>, and any other program that uses the libpcap/WinPcap library.</p>
+
+<p dir="auto">If you need a capture filter for a specific protocol, have a look for it at the <a href="https://wiki.wireshark.org/ProtocolReference">ProtocolReference</a>.</p>
+
+<p dir="auto"></p><div class="toc"><div class="toc-title">Table of Contents</div><ul><li><a href="https://wiki.wireshark.org/CaptureFilters#capturefilters">CaptureFilters</a><ul><li><a href="https://wiki.wireshark.org/CaptureFilters#capture-filter-is-not-a-display-filter">Capture filter is not a display filter</a></li><li><a href="https://wiki.wireshark.org/CaptureFilters#examples">Examples</a></li><li><a href="https://wiki.wireshark.org/CaptureFilters#useful-filters">Useful Filters</a></li><li><a href="https://wiki.wireshark.org/CaptureFilters#default-capture-filters">Default Capture Filters</a></li><li><a href="https://wiki.wireshark.org/CaptureFilters#further-information">Further Information</a></li><li><a href="https://wiki.wireshark.org/CaptureFilters#see-also">See Also</a></li><li><a href="https://wiki.wireshark.org/CaptureFilters#discussion">Discussion</a></li></ul></li></ul></div>
+
+<h2 class="editable"><a class="anchor" id="capture-filter-is-not-a-display-filter" href="https://wiki.wireshark.org/CaptureFilters#capture-filter-is-not-a-display-filter"></a>Capture filter is not a display filter<a class="anchor edit" id="capture-filter-is-not-a-display-filter" href="https://wiki.wireshark.org/gollum/edit/CaptureFilters.md#capture-filter-is-not-a-display-filter"></a></h2>
+
+<p dir="auto">Capture filters (like <code>tcp&nbsp;port&nbsp;80</code>) are not to be confused with display filters (like <code>tcp.port&nbsp;==&nbsp;80</code>). The former are much more limited and are used to reduce the size of a raw packet capture. The latter are used to hide some packets from the packet list.</p>
+
+<p dir="auto">Capture filters are set before starting a packet capture and cannot be modified during the capture. Display filters on the other hand do not have this limitation and you can change them on the fly.</p>
+
+<p dir="auto">In the main window, one can find the capture filter just above the interfaces list and in the interfaces dialog. The display filter can be changed above the packet list as can be seen in this picture:</p>
+
+<p dir="auto"><img src="./CaptureFilters_files/wireshark-main-window.png" alt="wireshark-main-window.png" title="wireshark-main-window.png"></p>
+
+<h2 class="editable"><a class="anchor" id="examples" href="https://wiki.wireshark.org/CaptureFilters#examples"></a>Examples<a class="anchor edit" id="examples" href="https://wiki.wireshark.org/gollum/edit/CaptureFilters.md#examples"></a></h2>
+
+<p dir="auto">Capture only traffic to or from IP address 172.18.5.4:</p>
+
+<pre dir="auto"><code>host 172.18.5.4
+</code></pre>
+
+<p dir="auto">Capture traffic to or from a range of IP addresses:</p>
+
+<pre dir="auto"><code>net 192.168.0.0/24
+</code></pre>
+
+<p dir="auto">or</p>
+
+<pre dir="auto"><code>net 192.168.0.0 mask 255.255.255.0
+</code></pre>
+
+<p dir="auto">Capture traffic from a range of IP addresses:</p>
+
+<pre dir="auto"><code>src net 192.168.0.0/24
+</code></pre>
+
+<p dir="auto">or</p>
+
+<pre dir="auto"><code>src net 192.168.0.0 mask 255.255.255.0
+</code></pre>
+
+<p dir="auto">Capture traffic to a range of IP addresses:</p>
+
+<pre dir="auto"><code>dst net 192.168.0.0/24
+</code></pre>
+
+<p dir="auto">or</p>
+
+<pre dir="auto"><code>dst net 192.168.0.0 mask 255.255.255.0
+</code></pre>
+
+<p dir="auto">Capture only DNS (port 53) traffic:</p>
+
+<pre dir="auto"><code>port 53
+</code></pre>
+
+<p dir="auto">Capture non-HTTP and non-SMTP traffic on your server (both are equivalent):</p>
+
+<pre dir="auto"><code>host www.example.com and not (port 80 or port 25)
+
+host www.example.com and not port 80 and not port 25
+</code></pre>
+
+<p dir="auto">Capture except all ARP and DNS traffic:</p>
+
+<pre dir="auto"><code>port not 53 and not arp
+</code></pre>
+
+<p dir="auto">Capture traffic within a range of ports</p>
+
+<pre dir="auto"><code>(tcp[0:2] &gt; 1500 and tcp[0:2] &lt; 1550) or (tcp[2:2] &gt; 1500 and tcp[2:2] &lt; 1550)
+</code></pre>
+
+<p dir="auto">or, with newer versions of libpcap (0.9.1 and later):</p>
+
+<pre dir="auto"><code>tcp portrange 1501-1549
+</code></pre>
+
+<p dir="auto">Capture only Ethernet type EAPOL:</p>
+
+<pre dir="auto"><code>ether proto 0x888e
+</code></pre>
+
+<p dir="auto">Reject ethernet frames towards the Link Layer Discovery Protocol Multicast group:</p>
+
+<pre dir="auto"><code>not ether dst 01:80:c2:00:00:0e
+</code></pre>
+
+<p dir="auto">Capture only IPv4 traffic - the shortest filter, but sometimes very useful to get rid of lower layer protocols like ARP and STP:</p>
+
+<pre class="highlight" dir="auto"><code>ip</code></pre>
+
+<p dir="auto">Capture only unicast traffic - useful to get rid of noise on the network if you only want to see traffic to and from your machine, not, for example, broadcast and multicast announcements:</p>
+
+<pre dir="auto"><code>not broadcast and not multicast
+</code></pre>
+
+<p dir="auto">Capture IPv6 "all nodes" (router and neighbor advertisement) traffic. Can be used to find rogue RAs:</p>
+
+<pre dir="auto"><code>dst host ff02::1
+</code></pre>
+
+<p dir="auto">Capture HTTP GET requests. This looks for the bytes 'G', 'E', 'T', and ' ' (hex values 47, 45, 54, and 20) just after the TCP header. "tcp[12:1] &amp; 0xf0) &gt;&gt; 2" figures out the TCP header length. From Jefferson Ogata via the <a href="http://seclists.org/tcpdump/2004/q4/95">tcpdump-workers mailing list</a>.</p>
+
+<pre dir="auto"><code>port 80 and tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x47455420
+</code></pre>
+
+<h2 class="editable"><a class="anchor" id="useful-filters" href="https://wiki.wireshark.org/CaptureFilters#useful-filters"></a>Useful Filters<a class="anchor edit" id="useful-filters" href="https://wiki.wireshark.org/gollum/edit/CaptureFilters.md#useful-filters"></a></h2>
+
+<p dir="auto">Blaster and Welchia are RPC worms. (Does anyone have better links, i.e. ones that describe or show the actual payload?)</p>
+
+<p dir="auto"><a href="http://www.sans.org/security-resources/malwarefaq/w32_blasterworm.php">Blaster worm</a>:</p>
+
+<pre dir="auto"><code>dst port 135 and tcp port 135 and ip[2:2]==48
+</code></pre>
+
+<p dir="auto"><a href="http://securityresponse.symantec.com/avcenter/venc/data/detecting.traffic.due.to.rpc.worms.html">Welchia worm</a>:</p>
+
+<pre dir="auto"><code>icmp[icmptype]==icmp-echo and ip[2:2]==92 and icmp[8:4]==0xAAAAAAAA
+</code></pre>
+
+<p dir="auto">The filter looks for an icmp echo request that is 92 bytes long and has an icmp payload that begins with 4 bytes of A's (hex). It is the signature of the welchia worm just before it tries to compromise a system.</p>
+
+<p dir="auto">Many worms try to spread by contacting other hosts on ports 135, 445, or 1433. This filter is independent of the specific worm instead it looks for SYN packets originating from a local network on those specific ports. Please change the network filter to reflect your own network.</p>
+
+<pre dir="auto"><code>dst port 135 or dst port 445 or dst port 1433  and tcp[tcpflags] &amp; (tcp-syn) != 0 and tcp[tcpflags] &amp; (tcp-ack) = 0 and src net 192.168.0.0/24
+</code></pre>
+
+<p dir="auto"><a href="https://web.archive.org/web/20140419183909/http://www.riverbed.com/blogs/Retroactively-detecting-a-prior-Heartbleed-exploitation-from-stored-packets-using-a-BPF-expression.html">Heartbleed Exploit</a>:</p>
+
+<pre dir="auto"><code>tcp src port 443 and (tcp[((tcp[12] &amp; 0xF0) &gt;&gt; 4 ) * 4] = 0x18) and (tcp[((tcp[12] &amp; 0xF0) &gt;&gt; 4 ) * 4 + 1] = 0x03) and (tcp[((tcp[12] &amp; 0xF0) &gt;&gt; 4 ) * 4 + 2] &lt; 0x04) and ((ip[2:2] - 4 * (ip[0] &amp; 0x0F)  - 4 * ((tcp[12] &amp; 0xF0) &gt;&gt; 4) &gt; 69))
+</code></pre>
+
+<h2 class="editable"><a class="anchor" id="default-capture-filters" href="https://wiki.wireshark.org/CaptureFilters#default-capture-filters"></a>Default Capture Filters<a class="anchor edit" id="default-capture-filters" href="https://wiki.wireshark.org/gollum/edit/CaptureFilters.md#default-capture-filters"></a></h2>
+
+<p dir="auto">Wireshark tries to determine if it's running remotely (e.g. via SSH or Remote Desktop), and if so sets a default capture filter that should block out the remote session traffic. It does this by checking environment variables in the following order:</p>
+
+<table dir="auto">
+  <thead>
+    <tr>
+      <th>Environment Variable</th>
+      <th>Resultant Filter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>SSH_CONNECTION</code></td>
+      <td>not (tcp port <em>srcport</em> and <em>addr_family</em> host <em>srchost</em> and tcp port <em>dstport</em> and <em>addr_family</em> host <em>dsthost</em>)</td>
+    </tr>
+    <tr>
+      <td><code>SSH_CLIENT</code></td>
+      <td>not (tcp port <em>srcport</em> and <em>addr_family</em> host <em>srchost</em> and tcp port <em>dstport</em>)</td>
+    </tr>
+    <tr>
+      <td><code>REMOTEHOST</code></td>
+      <td>not <em>addr_family</em> host <em>host</em>
+</td>
+    </tr>
+    <tr>
+      <td><code>DISPLAY</code></td>
+      <td>not <em>addr_family</em> host <em>host</em>
+</td>
+    </tr>
+    <tr>
+      <td><code>CLIENTNAME</code></td>
+      <td>not tcp port 3389</td>
+    </tr>
+  </tbody>
+</table>
+
+<p dir="auto">(<em>addr_family</em> will either be <code>ip</code> or <code>ip6</code>)</p>
+
+<h2 class="editable"><a class="anchor" id="further-information" href="https://wiki.wireshark.org/CaptureFilters#further-information"></a>Further Information<a class="anchor edit" id="further-information" href="https://wiki.wireshark.org/gollum/edit/CaptureFilters.md#further-information"></a></h2>
+
+<ul>
+  <li>
+    <p dir="auto"><a href="http://www.wireshark.org/docs/wsug_html_chunked/ChCapCaptureFilterSection.html">Filtering while capturing</a> from the <a href="http://www.wireshark.org/docs/wsug_html_chunked/">Wireshark User's Guide</a>.</p>
+  </li>
+  <li>
+    <p dir="auto">For the current version of Wireshark, 1.8.6, and for earlier 1.8.x releases, the capture filter dialog box is no longer available in the capture options window. Instead, you need to double-click on the interface listed in the capture options window in order to bring up the "Edit Interface Settings" window. At the bottom of this window you can enter your capture filter string or select a saved capture filter from the list, by clicking on the "Capture Filter" button.</p>
+  </li>
+  <li>
+    <p dir="auto">The <a href="http://www.wireshark.org/docs/man-pages/pcap-filter.html">pcap-filter man page</a> includes a comprehensive capture filter reference</p>
+  </li>
+  <li>
+    <p dir="auto">The <a href="https://web.archive.org/web/20151215011526/http://procana.asuscomm.com/">Mike Horn Tutorial</a> gives a good introduction to capture filters</p>
+  </li>
+  <li>
+    <p dir="auto">Capture and display filter <a href="http://packetlife.net/blog/2008/oct/18/cheat-sheets-tcpdump-and-wireshark/">Cheat sheets</a></p>
+  </li>
+  <li>
+    <p dir="auto">packetlevel.ch <a href="http://www.packetlevel.ch/html/tcpdumpf.html">Filter examples</a></p>
+  </li>
+</ul>
+
+<h2 class="editable"><a class="anchor" id="see-also" href="https://wiki.wireshark.org/CaptureFilters#see-also"></a>See Also<a class="anchor edit" id="see-also" href="https://wiki.wireshark.org/gollum/edit/CaptureFilters.md#see-also"></a></h2>
+
+<p dir="auto"><a href="https://wiki.wireshark.org/DisplayFilters">DisplayFilters</a>: more info on filters while displaying, not while capturing</p>
+
+<p dir="auto">The <a href="http://www.wireshark.org/tools/string-cf.html">String-Matching Capture Filter Generator</a></p>
+
+<h2 class="editable"><a class="anchor" id="discussion" href="https://wiki.wireshark.org/CaptureFilters#discussion"></a>Discussion<a class="anchor edit" id="discussion" href="https://wiki.wireshark.org/gollum/edit/CaptureFilters.md#discussion"></a></h2>
+
+<p dir="auto">BTW, the Symantec page says that Blaster probes 135/tcp, 4444/tcp, and 69/udp. Would</p>
+
+<pre dir="auto"><code> (tcp dst port 135 or tcp dst port 4444 or udp dst port 69) and ip[2:2]==48
+</code></pre>
+
+<p dir="auto">be a better filter? - <em>Gerald Combs</em></p>
+
+<p dir="auto">Q: What is a good filter for just capturing SIP and RTP packets?</p>
+
+<p dir="auto">A: On most systems, for SIP traffic to the standard SIP port 5060,</p>
+
+<pre dir="auto"><code>tcp port sip
+</code></pre>
+
+<p dir="auto">should capture TCP traffic to and from that port,</p>
+
+<pre dir="auto"><code>udp port sip
+</code></pre>
+
+<p dir="auto">should capture UDP traffic to and from that port, and</p>
+
+<pre dir="auto"><code>port sip
+</code></pre>
+
+<p dir="auto">should capture both TCP and UDP traffic to and from that port (if one of those filters gets "parse error", try using <code>5060</code> instead of <code>sip</code>). For SIP traffic to and from other ports, use that port number rather than <code>sip</code>.</p>
+
+<p dir="auto">In most cases RTP port numbers are dynamically assigned. You can use something like the following which limits the capture to UDP, even source and destination ports, a valid RTP version, and small packets. It will capture any non-RTP traffic that happens to match the filter (such as DNS) but it will capture all RTP packets in many environments.</p>
+
+<pre dir="auto"><code>udp[1] &amp; 1 != 1 &amp;&amp; udp[3] &amp; 1 != 1 &amp;&amp; udp[8] &amp; 0x80 == 0x80 &amp;&amp; length &lt; 250
+</code></pre>
+
+<p dir="auto">Capture WLAN traffic without Beacons:</p>
+
+<pre dir="auto"><code>link[0] != 0x80
+</code></pre>
+
+<p dir="auto">Capture all traffic originating (source) in the IP range 192.168.XXX.XXX:</p>
+
+<pre dir="auto"><code>src net 192.168
+</code></pre>
+
+<p dir="auto">Capture PPPoE traffic:</p>
+
+<pre class="highlight" dir="auto"><code>pppoes</code></pre>
+
+<pre class="highlight" dir="auto"><code>pppoes and (host 192.168.0.0 and port 80)</code></pre>
+
+<p dir="auto">Capture VLAN traffic:</p>
+
+<pre class="highlight" dir="auto"><code>vlan</code></pre>
+
+<pre class="highlight" dir="auto"><code>vlan and (host 192.168.0.0 and port 80)</code></pre>
+
+<p dir="auto">Imported from https://wiki.wireshark.org/CaptureFilters on 2020-08-11 23:11:47 UTC</p>
+
+	      </div>
+	    </div>
+	  </div>
+
+
+	</div>
+
+
+	<div id="footer" class="pt-4">
+		  <p id="last-edit"></p><div class="dotted-spinner hidden"></div> <a id="page-info-toggle" data-pagepath="CaptureFilters.md">When was this page last modified?</a><p></p>
+	</div>
+
+
+</div>
+
+<form name="rename" method="POST" action="https://wiki.wireshark.org/gollum/rename/CaptureFilters.md">
+  <input type="hidden" name="rename">
+  <input type="hidden" name="message">
+</form>
+
+</div>
+</div>
+
+
+</body></html>

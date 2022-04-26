@@ -1,0 +1,311 @@
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$ ./waf --run "nsta-udp --uplinks=20"
+Waf: Entering directory `/mnt/d/ns-allinone-3.30.1/ns-3.30.1/build'
+Waf: Leaving directory `/mnt/d/ns-allinone-3.30.1/ns-3.30.1/build'
+Build commands will be stored in build/compile_commands.json
+'build' finished successfully (46.464s)
+
+Current parameters:
+Number of Uplinks: 20
+Payload size in bytes: 1472
+Application datarate: 100Mbps
+Physical layer bitrate: OfdmRate54Mbps
+File to get the output: out-nsta-udp.txt
+
+UDP Traffic: Per second uplink throughput for 20 STAs
+----------------------------------------------------
+
+Network Layout:
+Node    Address         Location
+AP      03-06-00:00:00:00:00:01 0:0:0
+STA0    03-06-00:00:00:00:00:02 0:5:0
+STA1    03-06-00:00:00:00:00:03 0:5.1:0
+STA2    03-06-00:00:00:00:00:04 0:5.2:0
+STA3    03-06-00:00:00:00:00:05 0:5.3:0
+STA4    03-06-00:00:00:00:00:06 0:5.4:0
+STA5    03-06-00:00:00:00:00:07 0:5.5:0
+STA6    03-06-00:00:00:00:00:08 0:5.6:0
+STA7    03-06-00:00:00:00:00:09 0:5.7:0
+STA8    03-06-00:00:00:00:00:0a 0:5.8:0
+STA9    03-06-00:00:00:00:00:0b 0:5.9:0
+STA10   03-06-00:00:00:00:00:0c 0:6:0
+STA11   03-06-00:00:00:00:00:0d 0:6.1:0
+STA12   03-06-00:00:00:00:00:0e 0:6.2:0
+STA13   03-06-00:00:00:00:00:0f 0:6.3:0
+STA14   03-06-00:00:00:00:00:10 0:6.4:0
+STA15   03-06-00:00:00:00:00:11 0:6.5:0
+STA16   03-06-00:00:00:00:00:12 0:6.6:0
+STA17   03-06-00:00:00:00:00:13 0:6.7:0
+STA18   03-06-00:00:00:00:00:14 0:6.8:0
+STA19   03-06-00:00:00:00:00:15 0:6.9:0
+
+
+
+
+
+
+
+Output in file: out-nsta-udp.txt (per second throughput for all uplink flows)
+
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$ ./waf --run "nsta-udp --uplinks=30"
+Waf: Entering directory `/mnt/d/ns-allinone-3.30.1/ns-3.30.1/build'
+Waf: Leaving directory `/mnt/d/ns-allinone-3.30.1/ns-3.30.1/build'
+Build commands will be stored in build/compile_commands.json
+'build' finished successfully (37.864s)
+
+Current parameters:
+Number of Uplinks: 30
+Payload size in bytes: 1472
+Application datarate: 100Mbps
+Physical layer bitrate: OfdmRate54Mbps
+File to get the output: out-nsta-udp.txt
+
+UDP Traffic: Per second uplink throughput for 30 STAs
+----------------------------------------------------
+
+Network Layout:
+Node    Address         Location
+AP      03-06-00:00:00:00:00:01 0:0:0
+STA0    03-06-00:00:00:00:00:02 0:5:0
+STA1    03-06-00:00:00:00:00:03 0:5.1:0
+STA2    03-06-00:00:00:00:00:04 0:5.2:0
+STA3    03-06-00:00:00:00:00:05 0:5.3:0
+STA4    03-06-00:00:00:00:00:06 0:5.4:0
+STA5    03-06-00:00:00:00:00:07 0:5.5:0
+STA6    03-06-00:00:00:00:00:08 0:5.6:0
+STA7    03-06-00:00:00:00:00:09 0:5.7:0
+STA8    03-06-00:00:00:00:00:0a 0:5.8:0
+STA9    03-06-00:00:00:00:00:0b 0:5.9:0
+STA10   03-06-00:00:00:00:00:0c 0:6:0
+STA11   03-06-00:00:00:00:00:0d 0:6.1:0
+STA12   03-06-00:00:00:00:00:0e 0:6.2:0
+STA13   03-06-00:00:00:00:00:0f 0:6.3:0
+STA14   03-06-00:00:00:00:00:10 0:6.4:0
+STA15   03-06-00:00:00:00:00:11 0:6.5:0
+STA16   03-06-00:00:00:00:00:12 0:6.6:0
+STA17   03-06-00:00:00:00:00:13 0:6.7:0
+STA18   03-06-00:00:00:00:00:14 0:6.8:0
+STA19   03-06-00:00:00:00:00:15 0:6.9:0
+STA20   03-06-00:00:00:00:00:16 0:7:0
+STA21   03-06-00:00:00:00:00:17 0:7.1:0
+STA22   03-06-00:00:00:00:00:18 0:7.2:0
+STA23   03-06-00:00:00:00:00:19 0:7.3:0
+STA24   03-06-00:00:00:00:00:1a 0:7.4:0
+STA25   03-06-00:00:00:00:00:1b 0:7.5:0
+STA26   03-06-00:00:00:00:00:1c 0:7.6:0
+STA27   03-06-00:00:00:00:00:1d 0:7.7:0
+STA28   03-06-00:00:00:00:00:1e 0:7.8:0
+STA29   03-06-00:00:00:00:00:1f 0:7.9:0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+^C^CInterrupted
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$ ./waf --run "nsta-udp --uplinks=30"
+Waf: Entering directory `/mnt/d/ns-allinone-3.30.1/ns-3.30.1/build'
+Waf: Leaving directory `/mnt/d/ns-allinone-3.30.1/ns-3.30.1/build'
+Build commands will be stored in build/compile_commands.json
+'build' finished successfully (40.594s)
+
+Current parameters:
+Number of Uplinks: 30
+Payload size in bytes: 1472
+Application datarate: 100Mbps
+Physical layer bitrate: OfdmRate54Mbps
+File to get the output: out-nsta-udp.txt
+
+UDP Traffic: Per second uplink throughput for 30 STAs
+----------------------------------------------------
+
+Network Layout:
+Node    Address         Location
+AP      03-06-00:00:00:00:00:01 0:0:0
+STA0    03-06-00:00:00:00:00:02 0:5:0
+STA1    03-06-00:00:00:00:00:03 0:5.1:0
+STA2    03-06-00:00:00:00:00:04 0:5.2:0
+STA3    03-06-00:00:00:00:00:05 0:5.3:0
+STA4    03-06-00:00:00:00:00:06 0:5.4:0
+STA5    03-06-00:00:00:00:00:07 0:5.5:0
+STA6    03-06-00:00:00:00:00:08 0:5.6:0
+STA7    03-06-00:00:00:00:00:09 0:5.7:0
+STA8    03-06-00:00:00:00:00:0a 0:5.8:0
+STA9    03-06-00:00:00:00:00:0b 0:5.9:0
+STA10   03-06-00:00:00:00:00:0c 0:6:0
+STA11   03-06-00:00:00:00:00:0d 0:6.1:0
+STA12   03-06-00:00:00:00:00:0e 0:6.2:0
+STA13   03-06-00:00:00:00:00:0f 0:6.3:0
+STA14   03-06-00:00:00:00:00:10 0:6.4:0
+STA15   03-06-00:00:00:00:00:11 0:6.5:0
+STA16   03-06-00:00:00:00:00:12 0:6.6:0
+STA17   03-06-00:00:00:00:00:13 0:6.7:0
+STA18   03-06-00:00:00:00:00:14 0:6.8:0
+STA19   03-06-00:00:00:00:00:15 0:6.9:0
+STA20   03-06-00:00:00:00:00:16 0:7:0
+STA21   03-06-00:00:00:00:00:17 0:7.1:0
+STA22   03-06-00:00:00:00:00:18 0:7.2:0
+STA23   03-06-00:00:00:00:00:19 0:7.3:0
+STA24   03-06-00:00:00:00:00:1a 0:7.4:0
+STA25   03-06-00:00:00:00:00:1b 0:7.5:0
+STA26   03-06-00:00:00:00:00:1c 0:7.6:0
+STA27   03-06-00:00:00:00:00:1d 0:7.7:0
+STA28   03-06-00:00:00:00:00:1e 0:7.8:0
+STA29   03-06-00:00:00:00:00:1f 0:7.9:0
+
+
+
+
+
+
+
+
+
+
+
+
+Output in file: out-nsta-udp.txt (per second throughput for all uplink flows)
+
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+bhuvan@LAPTOP-47JCMHQD:/mnt/d/ns-allinone-3.30.1/ns-3.30.1$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

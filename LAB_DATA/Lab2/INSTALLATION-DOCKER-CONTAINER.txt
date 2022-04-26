@@ -1,0 +1,118 @@
+C:\Users\G BHUVAN REDDY>docker run hello-world
+Unable to find image 'hello-world:latest' locally
+docker: Error response from daemon: Get https://registry-1.docker.io/v2/: dial tcp: lookup registry-1.docker.io on 192.168.65.5:53: no such host.
+See 'docker run --help'.
+
+C:\Users\G BHUVAN REDDY>docker run hello-world;
+docker: invalid reference format.
+See 'docker run --help'.
+
+C:\Users\G BHUVAN REDDY>docker pull devanshdvj/cs252:base
+base: Pulling from devanshdvj/cs252
+2f94e549220a: Pulling fs layer
+b5aa4962852e: Pulling fs layer
+178983f1145a: Pulling fs layer
+86062a8b991c: Waiting
+8f944abc25ae: Waiting
+error pulling image configuration: Get https://production.cloudflare.docker.com/registry-v2/docker/registry/v2/blobs/sha256/50/50c97fec3eedf28622a1d4a0d9434abf1851d10bd115a679b22ae5cb88a7f78d/data?verify=1642762365-qHdlid45VRT%2BnppiareU4bkhQ0k%3D: dial tcp [2606:4700::6812:7919]:443: connect: network is unreachable
+
+C:\Users\G BHUVAN REDDY>docker pull devanshdvj/cs252:base
+base: Pulling from devanshdvj/cs252
+2f94e549220a: Pulling fs layer
+b5aa4962852e: Pulling fs layer
+178983f1145a: Pulling fs layer
+86062a8b991c: Waiting
+8f944abc25ae: Waiting
+error pulling image configuration: Get https://production.cloudflare.docker.com/registry-v2/docker/registry/v2/blobs/sha256/50/50c97fec3eedf28622a1d4a0d9434abf1851d10bd115a679b22ae5cb88a7f78d/data?verify=1642762385-HjMFtH3uRcy8HiG1f7k6RTZkny8%3D: dial tcp [2606:4700::6812:7919]:443: connect: network is unreachable
+
+C:\Users\G BHUVAN REDDY>docker pull devanshdvj/cs252:base
+base: Pulling from devanshdvj/cs252
+2f94e549220a: Pulling fs layer
+b5aa4962852e: Pulling fs layer
+178983f1145a: Pulling fs layer
+86062a8b991c: Waiting
+8f944abc25ae: Waiting
+error pulling image configuration: Get https://production.cloudflare.docker.com/registry-v2/docker/registry/v2/blobs/sha256/50/50c97fec3eedf28622a1d4a0d9434abf1851d10bd115a679b22ae5cb88a7f78d/data?verify=1642762403-lV1CGt3wF0YGoSBxqRqhlQ0BL0o%3D: dial tcp [2606:4700::6812:7919]:443: connect: network is unreachable
+
+C:\Users\G BHUVAN REDDY>docker pull devanshdvj/cs252:base
+base: Pulling from devanshdvj/cs252
+2f94e549220a: Pulling fs layer
+b5aa4962852e: Pulling fs layer
+178983f1145a: Pulling fs layer
+86062a8b991c: Waiting
+8f944abc25ae: Waiting
+error pulling image configuration: Get https://production.cloudflare.docker.com/registry-v2/docker/registry/v2/blobs/sha256/50/50c97fec3eedf28622a1d4a0d9434abf1851d10bd115a679b22ae5cb88a7f78d/data?verify=1642762424-K2%2BEhjKg%2B%2Bi%2BsLtzBCMcHhecb5M%3D: dial tcp [2606:4700::6812:7919]:443: connect: network is unreachable
+
+C:\Users\G BHUVAN REDDY>docker pull devanshdvj/cs252:base
+base: Pulling from devanshdvj/cs252
+2f94e549220a: Pulling fs layer
+b5aa4962852e: Pulling fs layer
+178983f1145a: Pulling fs layer
+86062a8b991c: Waiting
+8f944abc25ae: Waiting
+error pulling image configuration: Get https://production.cloudflare.docker.com/registry-v2/docker/registry/v2/blobs/sha256/50/50c97fec3eedf28622a1d4a0d9434abf1851d10bd115a679b22ae5cb88a7f78d/data?verify=1642762452-ltfhF%2B8YqTVdBK4%2BFD8xdz4WtrQ%3D: dial tcp [2606:4700::6812:7919]:443: connect: network is unreachable
+
+C:\Users\G BHUVAN REDDY>docker pull devanshdvj/cs252:base;
+invalid reference format
+
+C:\Users\G BHUVAN REDDY>docker pull devanshdvj/cs252:base
+base: Pulling from devanshdvj/cs252
+2f94e549220a: Pulling fs layer
+b5aa4962852e: Pulling fs layer
+178983f1145a: Pulling fs layer
+86062a8b991c: Waiting
+8f944abc25ae: Waiting
+error pulling image configuration: Get https://production.cloudflare.docker.com/registry-v2/docker/registry/v2/blobs/sha256/50/50c97fec3eedf28622a1d4a0d9434abf1851d10bd115a679b22ae5cb88a7f78d/data?verify=1642762472-SIfRLidAbTLZqkVlkWQUQPXrVEM%3D: dial tcp [2606:4700::6812:7919]:443: connect: network is unreachable
+
+C:\Users\G BHUVAN REDDY>docker pull devanshdvj/cs252:base
+Error response from daemon: Get https://registry-1.docker.io/v2/: dial tcp: lookup registry-1.docker.io on 192.168.65.5:53: no such host
+
+C:\Users\G BHUVAN REDDY>docker pull devanshdvj/cs252:base
+base: Pulling from devanshdvj/cs252
+2f94e549220a: Pull complete
+b5aa4962852e: Pull complete
+178983f1145a: Pull complete
+86062a8b991c: Pull complete
+8f944abc25ae: Pull complete
+Digest: sha256:d8dfbe6b3e6e476d48ce6033e74b054ddb7ffc549c73d29503d15d7c308b8579
+Status: Downloaded newer image for devanshdvj/cs252:base
+docker.io/devanshdvj/cs252:base
+
+C:\Users\G BHUVAN REDDY>docker run --hostname cs224 --name cs252 -it devanshdvj/cs252:base
+root@cs224:/# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@cs224:/# cd etc/
+root@cs224:/etc# ls
+adduser.conf            dhcp         init.d         magic                pam.d      rcS.d        subuid
+alternatives            dpkg         inputrc        magic.mime           passwd     resolv.conf  sysctl.conf
+apparmor.d              environment  iproute2       mailcap              passwd-    rmt          sysctl.d
+apt                     fstab        issue          mailcap.order        profile    rpc          systemd
+bash.bashrc             gai.conf     issue.net      mime.types           profile.d  securetty    terminfo
+bindresvport.blacklist  group        kernel         mke2fs.conf          protocols  security     tmpfiles.d
+binfmt.d                group-       ld.so.cache    modules-load.d       python3    selinux      ucf.conf
+ca-certificates         gshadow      ld.so.conf     mtab                 python3.6  services     udev
+ca-certificates.conf    gshadow-     ld.so.conf.d   network              rc0.d      shadow       ufw
+cron.daily              gss          legal          networkd-dispatcher  rc1.d      shadow-      update-motd.d
+dbus-1                  host.conf    libaudit.conf  networks             rc2.d      shells       wgetrc
+debconf.conf            hostname     login.defs     nsswitch.conf        rc3.d      skel         xdg
+debian_version          hosts        logrotate.d    opt                  rc4.d      ssh
+default                 hosts.allow  lsb-release    os-release           rc5.d      ssl
+deluser.conf            hosts.deny   machine-id     pam.conf             rc6.d      subgid
+root@cs224:/etc# cat hosts
+127.0.0.1       localhost
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+172.17.0.2      cs224
+root@cs224:/etc# cd ..
+root@cs224:/#
+
+
+
+
+
+=================================
+so host_name = cs224
+    container_name = cs252

@@ -1,0 +1,63 @@
+jQuery(document).ready(function() {
+        bizx.cmp.ifConsent('publisher', ['storage', 'measurement'], initPiwik);
+
+        jQuery('#comments-link').on('click', function ldl(e) {
+          e.preventDefault();
+
+          // Load commments from Disqus.
+          bizx.cmp.ifConsent('', 'all', function () {
+            loadDisqus(e);
+          });
+
+          // Remove comment link.
+          jQuery('#comments-link').remove();
+        });
+        /**
+         * This function loads the Disqus embed. Use drupalSettings to adjust the
+         * configuration used in this block:
+         *
+         * @see linuxjournal_page_attachments_alter()
+         */
+        function loadDisqus() {
+          /**
+           *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+           *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+           */
+          var disqus_config = function() {
+            this.page.url = drupalSettings.linuxjournal.disqus.fullUrl;
+            this.page.identifier = drupalSettings.linuxjournal.disqus.prettyUrl;
+          };
+          (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = drupalSettings.linuxjournal.disqus.embedUrl;
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          }());
+        }
+        var regular_opt_out_link = true;
+        if (window.region == 'CA' && window.country_code2 == 'US') {
+            regular_opt_out_link = false;
+            var opt_out_btn = '<li><button class="opt-out" id="opt-out-button"><img src="/themes/linuxjournal/images/optout-blue.png" style="width:40px; height:21px;margin-right: 5px;"> Do Not Sell My Personal Information</button></li>';
+            jQuery("#terms-nav").append(opt_out_btn);
+        }
+        if (window.is_euro_union == '1') {
+            regular_opt_out_link = false;
+            var elemP = '<li><a href="#" title="Privacy Choices" onclick="bizx.cmp.promptConsent(); return false;" rel="nofollow">PRIVACY CHOICES</a></li>';
+            jQuery('#terms-nav').append(elemP);
+        }
+        if (regular_opt_out_link == true) {
+            var elemO = '<li><a href="http://slashdotmedia.com/opt-out-choices" title="Opt Out" rel="nofollow" target="_blank">OPT OUT</a></li>';
+            jQuery('#terms-nav').append(elemO);
+        }
+        var modal = jQuery('#ccpa-modal');
+        jQuery('#opt-out-button').on('click', function() {
+            modal.css('display', 'flex');
+        });
+        jQuery('#modal-close').on('click', function() {
+            modal.css('display', 'none');
+        });
+      if (window.is_euro_union == "0") {
+        jQuery('body').addClass('no-cmp');
+      }
+});

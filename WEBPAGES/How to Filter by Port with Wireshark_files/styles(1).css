@@ -1,0 +1,258 @@
+.field-name-field-see-related {
+    margin-right: 1em;
+}
+
+.field-name-field-see-related.field {
+    margin-bottom: 1em;
+    padding: 10px;
+    background-color: #f3f3f3;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.field-name-field-see-related .field-label {
+    font-family: RobotoCondensed, Helvetica, Arial, Verdana, "Bitstream Vera Sans", sans-serif;
+    font-size: 1em;
+    line-height: 1.5em;
+    margin-bottom: 0.75em;
+    font-weight: bold;
+    text-transform: none;
+    margin: 0;
+}
+
+.field-name-field-see-related .field-items .field-item a {
+    font-size: 0.88888em;
+    line-height: 1.4985149851em;
+    margin: 5px 0;
+    display: block;
+    font-family: RobotoCondensed, Helvetica, Arial, Verdana, "Bitstream Vera Sans", sans-serif;
+}
+
+.article-full .field-name-field-see-related {
+    width: 56%;
+    margin: auto;
+    min-width: 320px;
+}
+
+.entry-content > .field-name-field-see-related,
+.entry-content > .block-dennis-group-content {
+    float: left;
+    width: 45% !important;
+    margin-right: 1em;
+}
+
+.field-name-field-see-related,
+#block-dennis-group-content-group-content-left-nav {
+    /*float: left;*/
+    width: 45%;
+}
+
+#block-dennis-group-content-group-content-left-nav ul.group-content-nav {
+    margin: 0;
+    padding: 10px 10px 10px 20px;
+    background-color: #f3f3f3;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#block-dennis-group-content-group-content-left-nav ul.group-content-nav li {
+    list-style: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-left: 0;
+    text-indent: -10px;
+}
+
+#block-dennis-group-content-group-content-left-nav ul.group-content-nav li:before {
+    width: 0px;
+    height: 0px;
+}
+
+#block-dennis-group-content-group-content-left-nav ul.group-content-nav li a:before {
+    content: "- ";
+    padding-right: 2px;
+}
+
+#block-dennis-group-content-group-content-left-nav ul.group-content-nav li a {
+    text-decoration: none;
+}
+
+#block-dennis-group-content-group-content-left-nav ul.group-content-nav li a.active {
+    color: #03566A;
+}
+
+.gallery-view-mode-presentation .gallery-item {
+    display: none;
+}
+
+.gallery-view-mode-presentation .gallery-item:first-child {
+    display: block;
+}
+
+.gallery-view-mode-presentation .gallery-item:first-child .gallery-icon {
+    height: 359px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-view-mode-presentation .gallery-item:first-child .gallery-icon img {
+    display: block;
+    -o-object-fit: cover;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.gallery-view-mode-presentation .gallery-item:first-child .gallery-info {
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #2777d2;
+    border-radius: 100%;
+    top: 50%;
+    left: 50%;
+    margin: -48px 0 0 17px;
+    color: #ffffff;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.gallery-view-mode-presentation .gallery-item:first-child .gallery-info span {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+}
+
+.gallery-view-mode-presentation .gallery-item:first-child a:after, .gallery-view-mode-presentation .gallery-item:first-child a:after {
+    width: 1.8em;
+    height: 1.8em;
+    line-height: 1.8em;
+    font-size: 50px;
+    background-color: #c5c5c5;
+    border-radius: 50%;
+    display: inline-block;
+    color: #ffffff;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.gallery-view-mode-presentation .gallery-item:first-child a:after, .gallery-view-mode-presentation .gallery-item:first-child a:after {
+    content: '';
+    background-size: 40px 40px;
+    background-image: url('../images/camera-solid.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    line-height: 1;
+    margin: 0 0 0 0.2em;
+}
+
+.entry-content .group-price-score {
+    text-align: center;
+    border-bottom: solid 1px #888888;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+}
+
+.entry-content .group-price-score .field-name-field-review-score-overall {
+    margin-bottom: 0.5em;
+}
+
+.entry-content .group-price-score .field {
+    clear: both;
+    margin-bottom: 0;
+}
+
+.entry-content .group-price-score .field-name-field-review-score-overall {
+    text-align: center;
+}
+
+@media screen and (min-width: 47.5em) {
+    .entry-content .group-price-score .field-name-field-review-score-overall {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .entry-content .group-price-score {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        text-align: left;
+    }
+
+    .entry-content .group-price-score .field:last-child {
+        margin-bottom: 10px;
+    }
+}
+
+.entry-content .group-price-score .field-items .field-item:after {
+    font-size: 13.99986px;
+    color: #949494;
+    text-transform: uppercase;
+    margin-left: 0.6em;
+}
+
+.field .field-label {
+    font-weight: normal;
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 13.99986px;
+    color: #949494;
+}
+
+.field .field-items {
+    display: inline-block;
+    color: #333333;
+    font-weight: bold;
+}
+
+.fivestar-basic {
+    float: right;
+    position: relative;
+    left: -50%;
+}
+
+.fivestar-basic .fivestar-widget-static {
+    display: block;
+    position: relative;
+    right: -50%;
+}
+
+.fivestar-basic .fivestar-widget-static .star {
+    float: left;
+    height: 27px;
+}
+
+.fivestar-basic .fivestar-widget-static .star span {
+    font-size: 0;
+}
+
+.fivestar-basic .fivestar-widget-static .star span.on::before {
+    font-size: 27px;
+    color: rgb(216, 8, 89);
+    line-height: 100%;
+    margin: 0px 0.2em 0px 0px;
+}
+
+.fivestar-basic .fivestar-widget-static .star span.off::before {
+    font-size: 27px;
+    color: rgb(51, 51, 51);
+    line-height: 100%;
+    margin: 0px 0.2em 0px 0px;
+}
+
+.reviews_specs_table {
+    width: 100%;
+}

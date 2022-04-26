@@ -1,0 +1,5 @@
+var DISQUSWIDGETS;
+
+if (typeof DISQUSWIDGETS != 'undefined') {
+    DISQUSWIDGETS.displayCount({"text":{"and":"and","comments":{"zero":"No comments yet. Be the first!","multiple":"Load {num} comments","one":"Load 1 comment"}},"counts":[{"id":"https:\/\/www.linuxjournal.com\/content\/fun-ethtool","comments":0}]});
+}

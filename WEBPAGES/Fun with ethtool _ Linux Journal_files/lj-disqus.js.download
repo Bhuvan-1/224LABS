@@ -1,0 +1,25 @@
+/* eslint max-len: 0 */
+/* eslint camelcase: 0 */
+/* eslint no-unused-vars: 0 */
+/* eslint func-names: 0 */
+/* eslint space-before-function-paren: 0 */
+(function iife($, Drupal, drupalSettings) {
+  Drupal.behaviors.loadDisqusListener = {
+    /**
+     * Our attach function simply attaches an event listener to load the Disqus
+     * embed once the user interacts. In order to retain user privacy there is
+     * no automatic loading of comments.
+     */
+    attach: function loadDisqusListener(context) {
+    /*  $('#comments-link', context).on('click', function ldl(e) {
+        e.preventDefault();
+
+        // Load commments from Disqus.
+        loadDisqus(e);
+
+        // Remove comment link.
+        $('#comments-link').remove();
+      });*/
+    },
+  };
+}(jQuery, Drupal, drupalSettings));
