@@ -1,0 +1,340 @@
+/* main.less
+ * This is the main LESS doc
+ * It imports all component LESS files and compiles to main.css
+ * ____________________________________________________________ */
+/* This is a list of custom class and mixins I use.
+* Does not support IE < 10
+* -------------------------------------------------*/
+.border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.standard-transition {
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  -o-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+.hand {
+  cursor: pointer;
+  cursor: hand;
+}
+.clearfix {
+  clear: both;
+}
+/* Project-specific styles
+ * Duplicate this page to create style modules
+ * Include this as an @import in main.less
+ * ____________________________________________________________ */
+/* I need to add font-family for brandon using new url */
+/* LESS-IFIED STYLES HERE */
+.livechat-container {
+  height: 50px;
+  width: auto;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  list-style-type: none;
+  border-top: 1px solid #333333;
+  border-left: 1px solid #333333;
+  background-color: #48e0a4;
+  z-index: 103;
+  margin: 0;
+  padding: 0;
+  /* Chat, twitter, and phone buttons */
+}
+@media (max-width: 767px) {
+  .livechat-container {
+    display: none !important;
+  }
+}
+.livechat-container li {
+  float: left;
+  height: 100%;
+  background-color: #000000;
+  border-right: 0;
+  cursor: pointer;
+  cursor: hand;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  bottom: 0;
+  list-style-image: none;
+  list-style-type: none;
+}
+.livechat-container li:last-child {
+  border-right: 0;
+}
+.livechat-container li .active-border {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* .livechat-container--website is the mediatemple.net version of the chat widget (.livechat-container--ac is for the AC) */
+.livechat-container--website {
+  display: none;
+  /* switch this using CSS on mediatemple.net */
+}
+.livechat-container--website li {
+  width: 150px;
+  padding: 20px 15px 12px 50px;
+  background: url('https://bin.mediatemple.net/chat/nova/chat.png') no-repeat 15px 15px #000000;
+  background-image: url('https://bin.mediatemple.net/chat/nova/chat.svg'), none;
+}
+.livechat-container--website li p {
+  float: left;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #ffffff;
+  font-family: "BrandonText", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  padding: 5px 0 0 0;
+  line-height: 0;
+}
+.livechat-container--website li:hover {
+  background: url('https://bin.mediatemple.net/chat/nova/chat-hover.png') no-repeat 15px 15px #000000;
+  background-image: url('https://bin.mediatemple.net/chat/nova/chat-hover.svg'), none;
+}
+.livechat-container--website li:hover p {
+  color: #48e0a4;
+}
+/* .livechat-container--ac is the AccountCenter version of the chat widget (.livechat-container--website is for the front-of-site mediatemple.net) */
+.livechat-container--ac {
+  display: block;
+  /* switch this using CSS on mediatemple.net */
+}
+.livechat-container--ac li {
+  width: 50px;
+  height: 50px;
+}
+.livechat-container--ac .chat {
+  background: url('https://bin.mediatemple.net/chat/nova/chat.png') no-repeat center #000000;
+  background-image: url('https://bin.mediatemple.net/chat/nova/chat.svg'), none;
+}
+.livechat-container--ac .chat:hover {
+  background: url('https://bin.mediatemple.net/chat/nova/chat-hover.png') no-repeat center #000000;
+  background-image: url('https://bin.mediatemple.net/chat/nova/chat-hover.svg'), none;
+}
+.livechat-container--ac .phone {
+  background: url('https://bin.mediatemple.net/chat/nova/phone.png') no-repeat center #000000;
+  background-image: url('https://bin.mediatemple.net/chat/nova/phone.svg'), none;
+}
+.livechat-container--ac .phone:hover {
+  background: url('https://bin.mediatemple.net/chat/nova/phone-hover.png') no-repeat center #000000;
+  background-image: url('https://bin.mediatemple.net/chat/nova/phone-hover.svg'), none;
+}
+.livechat-container--ac .twitter {
+  background: url('https://bin.mediatemple.net/chat/nova/twitter.png') no-repeat center #000000;
+  background-image: url('https://bin.mediatemple.net/chat/nova/twitter.svg'), none;
+}
+.livechat-container--ac .twitter:hover {
+  background: url('https://bin.mediatemple.net/chat/nova/twitter-hover.png') no-repeat center #000000;
+  background-image: url('https://bin.mediatemple.net/chat/nova/twitter-hover.svg'), none;
+}
+.livechat-container {
+  border-left: 0;
+}
+.livechat-container .active {
+  /* For website and AC, we want active button to be the same color as the expanded panel */
+  background-color: #1c1c1e;
+  bottom: 3px;
+  /* This reveals the green color below it, from the parent ul */
+  z-index: 104;
+  overflow: hidden;
+}
+.livechat-container .active:hover {
+  background-color: #1c1c1e;
+  /* Make the active button look activated, even on hover */
+}
+.livechat-container .active .active-border {
+  display: block;
+}
+.livechat-container .chat .active-border {
+  border-left: 1px solid #333333;
+  /* This is the left border of the chat widget. Don't want to double up. Pixel-perfect, yo */
+  display: block;
+  top: 0;
+}
+.livechat-container .chat.active .active-border {
+  border-right: 1px solid #333333;
+  top: 2px;
+}
+.livechat-container .phone.active .active-border {
+  border-left: 1px solid #333333;
+  border-right: 1px solid #333333;
+  top: 2px;
+}
+/* Expanded panels */
+.expanded {
+  position: fixed;
+  height: auto;
+  width: 320px;
+  bottom: 50px;
+  right: 0;
+  padding: 0;
+  background-color: #1c1c1e;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 101;
+  display: none;
+  border: 1px solid #333333;
+  border-right: 0;
+}
+.expanded p {
+  padding: 0;
+}
+.expanded button {
+  background-color: #48e0a4;
+  padding: 10px;
+  font-size: 14px;
+  font-family: "BrandonText", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: #191919;
+  margin-top: 10px;
+  border: 0;
+  outline: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  cursor: hand;
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  -o-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+.expanded button:hover {
+  background-color: #7df7c6;
+}
+.title-bar {
+  width: 100%;
+  height: 34px;
+  font-family: "BrandonText", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #d3d3d3;
+  font-weight: bold;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 7px;
+  line-height: 1;
+  background-color: #000000;
+}
+.title-bar p {
+  float: left;
+  color: #d3d3d3 !important;
+  font-size: 14px !important;
+  font-family: "BrandonText", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  margin: 0;
+}
+.title-bar span.close-expanded {
+  float: right;
+  width: 20px;
+  height: 20px;
+  display: block;
+  background: url('https://bin.mediatemple.net/chat/nova/close.png') no-repeat center center transparent;
+  background-image: url('https://bin.mediatemple.net/chat/nova/close.svg'), none;
+  cursor: pointer;
+  cursor: hand;
+}
+.title-bar span.close-expanded:hover {
+  background-image: url('https://bin.mediatemple.net/chat/nova/close-hover.png');
+  background-image: url('https://bin.mediatemple.net/chat/nova/close-hover.svg'), none;
+}
+/* .contact-options is the content inside each of the expanded panels */
+.contact-options {
+  padding: 30px 15px;
+  color: #ffffff;
+  display: block;
+}
+.contact-options p {
+  font-family: "BrandonText", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: left;
+  font-size: 14px !important;
+  color: #ffffff !important;
+  margin-bottom: 10px;
+}
+.contact-options p a {
+  color: #48e0a4;
+  text-decoration: none;
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  -o-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+.contact-options p a:hover {
+  color: #7df7c6;
+  text-decoration: none;
+}
+.contact-options p:first-child {
+  margin-top: 0;
+}
+.contact-options p:last-child {
+  margin: 0;
+}
+.contact-options p .skype {
+  color: #11a5f5;
+}
+.contact-options p .skype:hover {
+  color: #72ccfc;
+}
+.contact-options .btn--splitter {
+    border: 1px solid #48e0a4;
+    background-color: #4a4a4a;
+    color: #fff;
+}
+.contact-options .btn--splitter:hover {
+    background-color: #48e0a4;
+    color: #282b2d;
+    border-color: #48e0a4;
+}
+.invitation .sales-message {
+  display: none;
+}
+.invitation .support-message {
+  display: block;
+}
+.clearfix {
+  clear: both;
+}
+#livechat-compact-container {
+  display: none;
+  bottom: 49px !important;
+}
+#livechat-full {
+  right: 0 !important;
+  bottom: 49px !important;
+  width: 345px !important;
+  z-index: 99 !important;
+}
+
+.livechat-container li.livechat-attention {
+    width: 150px;
+    height: auto;
+    float: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    position: fixed;
+    bottom: 50px;
+}
+.livechat-container li.livechat-attention--blue {
+    background-image: none;
+    background-color: #47e3ff;
+    color: #000000;
+    border-bottom: 3px solid #4b848f;
+}

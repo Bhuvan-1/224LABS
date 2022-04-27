@@ -1,0 +1,30 @@
+
+function piResponse() {
+		piSetCookie('visitor_id262722', '660542579', 3650);
+			piSetCookie('visitor_id262722-hash', '021f72caf02a14baa6b7ff07d1c1972177f458e079e711d7d168e4e7457cf3a3d992c3dfc0b93ffd61985ec27fc4652e05b463aa', 3650);
+		
+		if (document.location.protocol != "https:" || (document.location.protocol == "https:" && true)) {
+		var analytics_link = document.location.protocol + "//" + "www2.mediatemple.net/analytics?";
+		pi.tracker.visitor_id='660542579';
+
+				pi.tracker.visitor_id_sign='021f72caf02a14baa6b7ff07d1c1972177f458e079e711d7d168e4e7457cf3a3d992c3dfc0b93ffd61985ec27fc4652e05b463aa';
+		
+				pi.tracker.campaign_id='1226';
+		
+		var variables = 'conly=true';
+		for (property in pi.tracker) {
+					variables += "&" + property + "=" + encodeURIComponent(pi.tracker[property]);
+				}
+		var headID = document.getElementsByTagName("head")[0];
+		piScriptObj[piScriptNum] = document.createElement('script');
+		piScriptObj[piScriptNum].type = 'text/javascript';
+		piScriptObj[piScriptNum].src = analytics_link + variables;
+		headID.appendChild(piScriptObj[piScriptNum]);
+		piScriptObj[piScriptNum].onload = function() { return; }
+	}
+	}
+piResponse();
+
+
+
+

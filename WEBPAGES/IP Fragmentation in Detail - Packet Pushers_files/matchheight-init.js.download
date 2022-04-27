@@ -1,0 +1,1 @@
+jQuery(function($){$('article.entry-header').matchHeight();$('article').matchHeight();$('.ez-home-container-area .one-half').matchHeight();$('.podcast-home-list').matchHeight();});
